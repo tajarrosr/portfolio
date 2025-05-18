@@ -66,7 +66,8 @@ export default function Skills() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-muted-foreground max-w-[700px] mx-auto"
         >
-          I've worked with a range of technologies in the web development world.
+          I&#39;ve worked with a range of technologies in the web development
+          world.
         </motion.p>
       </motion.div>
 

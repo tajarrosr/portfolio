@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 
 interface Skill {
   name: string;
@@ -103,10 +104,10 @@ export default function About() {
                 transition={{ duration: 0.5, delay: 0.5 }}
                 className="text-sm sm:text-base text-muted-foreground"
               >
-                I'm a Computer Science student at Pamantasan ng Lungsod ng Pasig
-                with a passion for real-world web development. I have knowledge
-                in software engineering principles like Agile methodology,
-                allowing me to work in team-based development.
+                I&#39;m a Computer Science student at Pamantasan ng Lungsod ng
+                Pasig with a passion for real-world web development. I have
+                knowledge in software engineering principles like Agile
+                methodology, allowing me to work in team-based development.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0 }}
@@ -115,8 +116,8 @@ export default function About() {
                 className="text-sm sm:text-base text-muted-foreground"
               >
                 During my OJT at Rizal Technological University (RTU), I worked
-                with my classmates on a queuing system for the university's MIS
-                office. My main responsibility was developing the login and
+                with my classmates on a queuing system for the university&#39;s
+                MIS office. My main responsibility was developing the login and
                 authentication system for both admin and super-admin accounts,
                 helping ensure secure access and user management.
               </motion.p>
@@ -126,7 +127,7 @@ export default function About() {
                 transition={{ duration: 0.5, delay: 0.7 }}
                 className="text-sm sm:text-base text-muted-foreground"
               >
-                In development, I enjoy working on the front-end. I'm also
+                In development, I enjoy working on the front-end. I&#39;m also
                 interested in cryptocurrency and automation — always exploring
                 new ways to improve workflows and efficiency.
               </motion.p>
@@ -150,9 +151,11 @@ export default function About() {
                 style={{ borderColor: "#1dcd9f" }}
               >
                 <div className="w-full h-full rounded-full overflow-hidden">
-                  <img
+                  <Image
                     src="/images/pic.png"
                     alt="Profile"
+                    width={240} // or whatever matches your layout
+                    height={240}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -191,9 +194,11 @@ export default function About() {
               >
                 <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto relative">
                   <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 transform group-hover:scale-90">
-                    <img
+                    <Image
                       src={skill.icon || "/placeholder.svg"}
                       alt={skill.name}
+                      width={40}
+                      height={40}
                       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                     />
                   </div>

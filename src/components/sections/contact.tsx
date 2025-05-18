@@ -35,9 +35,9 @@ export default function Contact() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-muted-foreground text-sm sm:text-base"
             >
-              I'm currently open to new opportunities and collaborations.
-              Whether you have a question or just want to say hi, I'll try my
-              best to get back to you!
+              I&#39;m currently open to new opportunities and collaborations.
+              Whether you have a question or just want to say hi, I&#39;ll try
+              my best to get back to you!
             </motion.p>
             <motion.div
               initial={{ opacity: 0 }}

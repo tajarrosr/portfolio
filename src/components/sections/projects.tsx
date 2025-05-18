@@ -6,6 +6,8 @@ import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import type { Project } from "@/types/project";
+import type { MotionValue } from "framer-motion";
+import Image from "next/image";
 
 export default function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -153,7 +155,7 @@ export default function Projects() {
 interface ProjectImageProps {
   project: Project;
   index: number;
-  scrollYProgress: any;
+  scrollYProgress: MotionValue<number>;
   totalProjects: number;
 }
 
@@ -215,10 +217,11 @@ function ProjectImage({
         style={{ backgroundColor: project.color }}
       >
         <div className="relative rounded overflow-hidden aspect-video">
-          <img
+          <Image
             src={project.image || "/placeholder.svg"}
             alt={project.title}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover w-full h-full"
           />
         </div>
         <motion.div
@@ -245,7 +248,7 @@ interface ProjectDetailsProps {
   isActive: boolean;
 }
 
-function ProjectDetails({ project, isActive }: ProjectDetailsProps) {
+function ProjectDetails({ project }: ProjectDetailsProps) {
   return (
     <motion.div
       key={project.title}
