@@ -4,4 +4,6 @@ export interface Project {
   image: string;
   tags: string[];
   link: string;
+  details?: string[];
+  color?: string;
 }

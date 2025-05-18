@@ -33,9 +33,9 @@ export default function About() {
 
   const skills: Skill[] = [
     { name: "JavaScript", icon: "/images/skills/js.png" },
-    { name: "TypeScript", icon: "/icons/typescript.png" },
+    { name: "TypeScript", icon: "/images/skills/typescript.png" },
     { name: "React", icon: "/images/skills/reactjs.png" },
-    { name: "Next.js", icon: "/icons/nextjs.png" },
+    { name: "Next.js", icon: "/images/skills/nextjs.png" },
     { name: "Node.js", icon: "/images/skills/nodejs.png" },
     { name: "Laravel", icon: "/images/skills/laravel.png" },
     { name: "HTML", icon: "/images/skills/html.png" },
@@ -61,7 +61,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="container py-24 md:py-16">
+    <section id="about" className="container py-16 md:py-24 lg:py-32">
       <div className="max-w-6xl mx-auto" ref={ref}>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-y-8 gap-x-4 items-center">
           {/* Left side: Text */}
@@ -69,10 +69,10 @@ export default function About() {
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="md:col-span-7 space-y-6"
+            className="md:col-span-7 space-y-6 px-4 sm:px-0"
           >
             <motion.div
-              className="mb-16 text-left"
+              className="mb-8 md:mb-16 text-left"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.5 }}
@@ -83,7 +83,7 @@ export default function About() {
                   isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
                 }
                 transition={{ duration: 0.5 }}
-                className="text-3xl font-bold tracking-tighter mb-4"
+                className="text-2xl sm:text-3xl font-bold tracking-tighter mb-4"
               >
                 About Me
               </motion.h2>
@@ -101,7 +101,7 @@ export default function About() {
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="text-muted-foreground"
+                className="text-sm sm:text-base text-muted-foreground"
               >
                 I'm a Computer Science student at Pamantasan ng Lungsod ng Pasig
                 with a passion for real-world web development. I have knowledge
@@ -112,7 +112,7 @@ export default function About() {
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="text-muted-foreground"
+                className="text-sm sm:text-base text-muted-foreground"
               >
                 During my OJT at Rizal Technological University (RTU), I worked
                 with my classmates on a queuing system for the university's MIS
@@ -124,7 +124,7 @@ export default function About() {
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.5, delay: 0.7 }}
-                className="text-muted-foreground"
+                className="text-sm sm:text-base text-muted-foreground"
               >
                 In development, I enjoy working on the front-end. I'm also
                 interested in cryptocurrency and automation — always exploring
@@ -146,7 +146,7 @@ export default function About() {
           >
             <div className="relative">
               <div
-                className="w-54 h-54 md:w-60 md:h-60 rounded-full overflow-hidden border-4 bg-gradient-to-br from-primary/5 to-primary/20 p-1"
+                className="w-48 h-48 sm:w-54 sm:h-54 md:w-60 md:h-60 rounded-full overflow-hidden border-4 bg-gradient-to-br from-primary/5 to-primary/20 p-1"
                 style={{ borderColor: "#1dcd9f" }}
               >
                 <div className="w-full h-full rounded-full overflow-hidden">
@@ -166,15 +166,17 @@ export default function About() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="pt-12 text-center"
+          className="pt-12 text-center px-4 sm:px-0"
         >
-          <h3 className="text-xl font-semibold mb-4">Skills & Technologies</h3>
+          <h3 className="text-lg sm:text-xl font-semibold mb-4">
+            Skills & Technologies
+          </h3>
 
           <motion.div
             variants={container}
             initial="hidden"
             animate={isInView ? "show" : "hidden"}
-            className="grid grid-cols-4 sm:grid-cols-6 gap-6 max-w-3xl mx-auto"
+            className="grid grid-cols-5 sm:grid-cols-4 md:grid-cols-6 gap-4 sm:gap-6 max-w-3xl mx-auto"
           >
             {skills.map((skill) => (
               <motion.div
@@ -184,13 +186,15 @@ export default function About() {
                 className="relative group"
                 onMouseEnter={() => setHoveredSkill(skill.name)}
                 onMouseLeave={() => setHoveredSkill(null)}
+                onTouchStart={() => setHoveredSkill(skill.name)}
+                onTouchEnd={() => setHoveredSkill(null)}
               >
-                <div className="w-12 h-12 mx-auto relative">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto relative">
                   <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 transform group-hover:scale-90">
                     <img
                       src={skill.icon || "/placeholder.svg"}
                       alt={skill.name}
-                      className="w-10 h-10 object-contain"
+                      className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                     />
                   </div>
                   <div className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

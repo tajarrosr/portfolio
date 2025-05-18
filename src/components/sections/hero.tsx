@@ -5,11 +5,18 @@ import { ArrowDown } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Hero() {
-  const [isVisible, setIsVisible] = useState(true);
+  const [showScrollDown, setShowScrollDown] = useState(true);
+  const [showHeroSection, setShowHeroSection] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsVisible(window.scrollY < 300);
+      const scrollY = window.scrollY;
+
+      // Show scroll indicator only when near top (less than 50px)
+      setShowScrollDown(scrollY < 50);
+
+      // Fade out hero section after scrolling more than 300px (adjust this value as needed)
+      setShowHeroSection(scrollY < 300);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -19,10 +26,7 @@ export default function Hero() {
   return (
     <motion.section
       initial={{ opacity: 1 }}
-      animate={{
-        opacity: isVisible ? 1 : 0,
-        pointerEvents: isVisible ? "auto" : "none",
-      }}
+      animate={{ opacity: showHeroSection ? 1 : 0 }}
       transition={{ duration: 0.6 }}
       className="relative h-screen flex items-center justify-center overflow-hidden"
     >
@@ -72,7 +76,7 @@ export default function Hero() {
 
           {/* Scroll Down Indicator */}
           <AnimatePresence>
-            {isVisible && (
+            {showScrollDown && (
               <motion.div
                 key="scroll-indicator"
                 initial={{ opacity: 0 }}

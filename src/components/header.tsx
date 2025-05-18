@@ -22,14 +22,24 @@ export default function Header() {
       setScrolled(window.scrollY > 50);
 
       // Determine active section
-      const sections = ["about", "projects", "contact"];
+      const sections = ["about", "experience", "projects", "contact"];
+
+      // Find the section closest to the viewport top
+      let closestSection = "home";
+      let closestDistance = Number.MAX_VALUE;
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 200 && rect.bottom >= 200) {
-            setActiveSection(section);
-            break;
+          // Calculate distance from top of viewport to section middle
+          const distance = Math.abs(
+            rect.top + rect.height / 2 - window.innerHeight / 2
+          );
+
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestSection = section;
           }
         }
       }
@@ -37,6 +47,8 @@ export default function Header() {
       // If we're at the top, set active to home
       if (window.scrollY < 100) {
         setActiveSection("home");
+      } else {
+        setActiveSection(closestSection);
       }
     };
 
@@ -66,6 +78,18 @@ export default function Header() {
             transition={{ duration: 0.2 }}
           >
             About Me
+          </motion.a>
+          <motion.a
+            href="#experience"
+            className={`text-sm font-medium transition-all ${
+              activeSection === "experience"
+                ? "text-primary"
+                : "text-foreground hover:text-primary"
+            }`}
+            whileHover={{ x: -5 }}
+            transition={{ duration: 0.2 }}
+          >
+            Experience
           </motion.a>
           <motion.a
             href="#projects"
@@ -156,6 +180,15 @@ export default function Header() {
                 transition={{ duration: 0.2 }}
               >
                 About Me
+              </motion.a>
+              <motion.a
+                href="#experience"
+                onClick={() => setMenuOpen(false)}
+                className="block hover:text-primary transition-all"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                Experience
               </motion.a>
               <motion.a
                 href="#projects"

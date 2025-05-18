@@ -10,9 +10,9 @@ export default function Footer() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="text-center text-sm leading-loose text-muted-foreground"
+          className="text-center text-xs sm:text-sm leading-loose text-muted-foreground"
         >
-          © {new Date().getFullYear()} John Doe. All rights reserved.
+          © {new Date().getFullYear()} Ritchmond Tajarros. All rights reserved.
         </motion.p>
         <motion.p
           initial={{ opacity: 0 }}

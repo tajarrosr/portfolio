@@ -7,7 +7,7 @@ export default function SocialIcons() {
   return (
     <motion.div
       className="social-icons"
-      initial={{ opacity: 0, x: -20 }}
+      initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 1, duration: 0.5 }}
     >
@@ -15,7 +15,7 @@ export default function SocialIcons() {
         href="https://github.com"
         target="_blank"
         rel="noopener noreferrer"
-        whileHover={{ y: -5, color: "#FF7F50" }}
+        whileHover={{ y: -5, color: "#1dcd9f" }}
         transition={{ duration: 0.2 }}
         className="text-foreground hover:text-primary transition-colors"
       >
@@ -26,7 +26,7 @@ export default function SocialIcons() {
         href="https://linkedin.com"
         target="_blank"
         rel="noopener noreferrer"
-        whileHover={{ y: -5, color: "#FF7F50" }}
+        whileHover={{ y: -5, color: "#1dcd9f" }}
         transition={{ duration: 0.2 }}
         className="text-foreground hover:text-primary transition-colors"
       >
