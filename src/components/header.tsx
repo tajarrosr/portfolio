@@ -9,7 +9,6 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const isDarkMode = theme === "dark";
-  const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
   const toggleTheme = () => {
@@ -19,12 +18,7 @@ export default function Header() {
   // Handle scroll events
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-
-      // Determine active section
       const sections = ["about", "experience", "projects", "contact"];
-
-      // Find the section closest to the viewport top
       let closestSection = "home";
       let closestDistance = Number.MAX_VALUE;
 
@@ -32,7 +26,6 @@ export default function Header() {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // Calculate distance from top of viewport to section middle
           const distance = Math.abs(
             rect.top + rect.height / 2 - window.innerHeight / 2
           );
@@ -44,7 +37,7 @@ export default function Header() {
         }
       }
 
-      // If we're at the top, set active to home
+      // Determine active section
       if (window.scrollY < 100) {
         setActiveSection("home");
       } else {
