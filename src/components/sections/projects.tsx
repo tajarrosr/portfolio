@@ -1,19 +1,19 @@
-"use client";
+"use client"
 
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
-import { ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import type { Project } from "@/types/project";
-import type { MotionValue } from "framer-motion";
-import Image from "next/image";
+import { motion, useScroll, useTransform, useInView } from "framer-motion"
+import { useRef, useState, useEffect } from "react"
+import { ExternalLink } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import type { Project } from "@/types/project"
+import type { MotionValue } from "framer-motion"
+import Image from "next/image"
 
 export default function Projects() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const isHeaderInView = useInView(headerRef, { once: true, margin: "-100px" });
-  const [activeProject, setActiveProject] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const isHeaderInView = useInView(headerRef, { once: true, margin: "-100px" })
+  const [activeProject, setActiveProject] = useState(0)
 
   // Define projects
   const projects: Project[] = [
@@ -51,16 +51,9 @@ export default function Projects() {
     },
     {
       title: "Portfolio Website",
-      description:
-        "A responsive portfolio website built with Next.js and Tailwind CSS (this website).",
+      description: "A responsive portfolio website built with Next.js and Tailwind CSS (this website).",
       image: "/placeholder.svg?height=600&width=800",
-      tags: [
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "shadcn/ui",
-        "Framer Motion",
-      ],
+      tags: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Framer Motion"],
       link: "#",
       details: [
         "Designed and developed a personal portfolio website using Next.js",
@@ -71,27 +64,24 @@ export default function Projects() {
       ],
       color: "#1dcd9f", // primary color
     },
-  ];
+  ]
 
   // Scroll-based animations
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
-  });
+  })
 
   // Update active project based on scroll position
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((value) => {
       // Calculate which project should be active based on scroll progress
-      const projectIndex = Math.min(
-        Math.floor(value * projects.length),
-        projects.length - 1
-      );
-      setActiveProject(projectIndex);
-    });
+      const projectIndex = Math.min(Math.floor(value * projects.length), projects.length - 1)
+      setActiveProject(projectIndex)
+    })
 
-    return () => unsubscribe();
-  }, [scrollYProgress, projects.length]);
+    return () => unsubscribe()
+  }, [scrollYProgress, projects.length])
 
   return (
     <section id="projects" className="relative py-16 md:py-24 lg:py-32">
@@ -105,9 +95,7 @@ export default function Projects() {
         >
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
-            animate={
-              isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-            }
+            animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5 }}
             className="text-2xl sm:text-3xl font-bold tracking-tighter"
           >
@@ -115,22 +103,20 @@ export default function Projects() {
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={
-              isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-            }
+            animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-muted-foreground max-w-[700px] mx-auto text-sm sm:text-base"
           >
-            Here are some of my recent projects. Each project reflects my
-            passion for building intuitive and impactful web applications.
+            Here are some of my recent projects. Each project reflects my passion for building intuitive and impactful
+            web applications.
           </motion.p>
         </motion.div>
       </div>
 
       <div className="container mx-auto" ref={containerRef}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 items-start">
           {/* Scrolling Images Column */}
-          <div className="relative h-[200vh]">
+          <div className="relative h-[200vh] px-4 lg:px-0">
             {projects.map((project, index) => (
               <ProjectImage
                 key={index}
@@ -143,31 +129,26 @@ export default function Projects() {
           </div>
 
           {/* Static Details Column */}
-          <div className="lg:sticky lg:top-32 self-start">
+          <div className="lg:sticky lg:top-32 self-start px-4 lg:px-0">
             <ProjectDetails project={projects[activeProject]} isActive={true} />
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 interface ProjectImageProps {
-  project: Project;
-  index: number;
-  scrollYProgress: MotionValue<number>;
-  totalProjects: number;
+  project: Project
+  index: number
+  scrollYProgress: MotionValue<number>
+  totalProjects: number
 }
 
-function ProjectImage({
-  project,
-  index,
-  scrollYProgress,
-  totalProjects,
-}: ProjectImageProps) {
+function ProjectImage({ project, index, scrollYProgress, totalProjects }: ProjectImageProps) {
   // Calculate the scroll progress range for this project
-  const projectStart = index / totalProjects;
-  const projectEnd = (index + 1) / totalProjects;
+  const projectStart = index / totalProjects
+  const projectEnd = (index + 1) / totalProjects
 
   // Transform values based on scroll position
   const opacity = useTransform(
@@ -179,14 +160,10 @@ function ProjectImage({
       projectEnd,
       Math.min(1, projectEnd + 0.1),
     ],
-    [0, 1, 1, 1, 0]
-  );
+    [0, 1, 1, 1, 0],
+  )
 
-  const y = useTransform(
-    scrollYProgress,
-    [projectStart, projectEnd],
-    [index === 0 ? 0 : 100, -100]
-  );
+  const y = useTransform(scrollYProgress, [projectStart, projectEnd], [index === 0 ? 0 : 100, -100])
 
   const scale = useTransform(
     scrollYProgress,
@@ -197,8 +174,8 @@ function ProjectImage({
       projectEnd,
       Math.min(1, projectEnd + 0.1),
     ],
-    [0.8, 1, 1, 1, 0.8]
-  );
+    [0.8, 1, 1, 1, 0.8],
+  )
 
   return (
     <motion.div
@@ -210,10 +187,10 @@ function ProjectImage({
         top: "20vh",
         zIndex: totalProjects - index,
       }}
-      className="w-full aspect-video"
+      className="w-full aspect-video mb-8 lg:mb-0"
     >
       <div
-        className="rounded-lg overflow-hidden shadow-xl p-4 aspect-video relative"
+        className="rounded-lg overflow-hidden shadow-xl p-2 sm:p-4 aspect-video relative"
         style={{ backgroundColor: project.color }}
       >
         <div className="relative rounded overflow-hidden aspect-video">
@@ -231,7 +208,7 @@ function ProjectImage({
           transition={{ delay: 0.3 }}
         />
         <motion.div
-          className="absolute bottom-6 left-6 text-white text-xl md:text-2xl font-bold"
+          className="absolute bottom-2 sm:bottom-6 left-2 sm:left-6 text-white text-sm sm:text-xl md:text-2xl font-bold"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
@@ -240,12 +217,12 @@ function ProjectImage({
         </motion.div>
       </div>
     </motion.div>
-  );
+  )
 }
 
 interface ProjectDetailsProps {
-  project: Project;
-  isActive: boolean;
+  project: Project
+  isActive: boolean
 }
 
 function ProjectDetails({ project }: ProjectDetailsProps) {
@@ -294,5 +271,5 @@ function ProjectDetails({ project }: ProjectDetailsProps) {
         View Project <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
       </Button>
     </motion.div>
-  );
+  )
 }

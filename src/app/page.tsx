@@ -1,40 +1,38 @@
-"use client";
+"use client"
 
-import { useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Hero from "@/components/sections/hero";
-import About from "@/components/sections/about";
-import Experience from "@/components/sections/experience";
-import Projects from "@/components/sections/projects";
-import Contact from "@/components/sections/contact";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
-import SocialIcons from "@/components/social-icons";
+import { useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import Hero from "@/components/sections/hero"
+import About from "@/components/sections/about"
+import Skills from "@/components/sections/skills"
+import Experience from "@/components/sections/experience"
+import Projects from "@/components/sections/projects"
+import Contact from "@/components/sections/contact"
+import Footer from "@/components/footer"
+import Header from "@/components/header"
+import SocialIcons from "@/components/social-icons"
 
 export default function Home() {
   // Add smooth scrolling
   useEffect(() => {
     const handleLinkClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (
-        target.tagName === "A" &&
-        target.getAttribute("href")?.startsWith("#")
-      ) {
-        e.preventDefault();
-        const id = target.getAttribute("href");
-        const element = document.querySelector(id as string);
+      const target = e.target as HTMLElement
+      if (target.tagName === "A" && target.getAttribute("href")?.startsWith("#")) {
+        e.preventDefault()
+        const id = target.getAttribute("href")
+        const element = document.querySelector(id as string)
         if (element) {
           window.scrollTo({
             top: element.getBoundingClientRect().top + window.scrollY - 80,
             behavior: "smooth",
-          });
+          })
         }
       }
-    };
+    }
 
-    document.addEventListener("click", handleLinkClick);
-    return () => document.removeEventListener("click", handleLinkClick);
-  }, []);
+    document.addEventListener("click", handleLinkClick)
+    return () => document.removeEventListener("click", handleLinkClick)
+  }, [])
 
   return (
     <AnimatePresence>
@@ -53,6 +51,7 @@ export default function Home() {
         <main className="flex-1">
           <Hero />
           <About />
+          <Skills />
           <Experience />
           <Projects />
           <Contact />
@@ -61,5 +60,5 @@ export default function Home() {
         <Footer />
       </motion.div>
     </AnimatePresence>
-  );
+  )
 }

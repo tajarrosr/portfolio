@@ -1,53 +1,51 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
-import { useTheme } from "next-themes";
+import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Menu, X, Sun, Moon } from "lucide-react"
+import { useTheme } from "next-themes"
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
-  const isDarkMode = theme === "dark";
-  const [activeSection, setActiveSection] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false)
+  const { theme, setTheme } = useTheme()
+  const isDarkMode = theme === "dark"
+  const [activeSection, setActiveSection] = useState("home")
 
   const toggleTheme = () => {
-    setTheme(isDarkMode ? "light" : "dark");
-  };
+    setTheme(isDarkMode ? "light" : "dark")
+  }
 
   // Handle scroll events
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["about", "experience", "projects", "contact"];
-      let closestSection = "home";
-      let closestDistance = Number.MAX_VALUE;
+      const sections = ["about", "skills", "experience", "projects", "contact"]
+      let closestSection = "home"
+      let closestDistance = Number.MAX_VALUE
 
       for (const section of sections) {
-        const element = document.getElementById(section);
+        const element = document.getElementById(section)
         if (element) {
-          const rect = element.getBoundingClientRect();
-          const distance = Math.abs(
-            rect.top + rect.height / 2 - window.innerHeight / 2
-          );
+          const rect = element.getBoundingClientRect()
+          const distance = Math.abs(rect.top + rect.height / 2 - window.innerHeight / 2)
 
           if (distance < closestDistance) {
-            closestDistance = distance;
-            closestSection = section;
+            closestDistance = distance
+            closestSection = section
           }
         }
       }
 
       // Determine active section
       if (window.scrollY < 100) {
-        setActiveSection("home");
+        setActiveSection("home")
       } else {
-        setActiveSection(closestSection);
+        setActiveSection(closestSection)
       }
-    };
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <>
@@ -63,9 +61,7 @@ export default function Header() {
           <motion.a
             href="#about"
             className={`text-sm font-medium transition-all ${
-              activeSection === "about"
-                ? "text-primary"
-                : "text-foreground hover:text-primary"
+              activeSection === "about" ? "text-primary" : "text-foreground hover:text-primary"
             }`}
             whileHover={{ x: -5 }}
             transition={{ duration: 0.2 }}
@@ -73,11 +69,19 @@ export default function Header() {
             About Me
           </motion.a>
           <motion.a
+            href="#skills"
+            className={`text-sm font-medium transition-all ${
+              activeSection === "skills" ? "text-primary" : "text-foreground hover:text-primary"
+            }`}
+            whileHover={{ x: -5 }}
+            transition={{ duration: 0.2 }}
+          >
+            Skills
+          </motion.a>
+          <motion.a
             href="#experience"
             className={`text-sm font-medium transition-all ${
-              activeSection === "experience"
-                ? "text-primary"
-                : "text-foreground hover:text-primary"
+              activeSection === "experience" ? "text-primary" : "text-foreground hover:text-primary"
             }`}
             whileHover={{ x: -5 }}
             transition={{ duration: 0.2 }}
@@ -87,9 +91,7 @@ export default function Header() {
           <motion.a
             href="#projects"
             className={`text-sm font-medium transition-all ${
-              activeSection === "projects"
-                ? "text-primary"
-                : "text-foreground hover:text-primary"
+              activeSection === "projects" ? "text-primary" : "text-foreground hover:text-primary"
             }`}
             whileHover={{ x: -5 }}
             transition={{ duration: 0.2 }}
@@ -99,9 +101,7 @@ export default function Header() {
           <motion.a
             href="#contact"
             className={`text-sm font-medium transition-all ${
-              activeSection === "contact"
-                ? "text-primary"
-                : "text-foreground hover:text-primary"
+              activeSection === "contact" ? "text-primary" : "text-foreground hover:text-primary"
             }`}
             whileHover={{ x: -5 }}
             transition={{ duration: 0.2 }}
@@ -150,15 +150,6 @@ export default function Header() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 bg-background/95 backdrop-blur-md flex flex-col items-center justify-center z-40"
           >
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setMenuOpen(false)}
-              className="absolute top-6 right-6 text-foreground"
-            >
-              <X size={24} />
-              <span className="sr-only">Close menu</span>
-            </motion.button>
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -173,6 +164,15 @@ export default function Header() {
                 transition={{ duration: 0.2 }}
               >
                 About Me
+              </motion.a>
+              <motion.a
+                href="#skills"
+                onClick={() => setMenuOpen(false)}
+                className="block hover:text-primary transition-all"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                Skills
               </motion.a>
               <motion.a
                 href="#experience"
@@ -220,5 +220,5 @@ export default function Header() {
         )}
       </AnimatePresence>
     </>
-  );
+  )
 }

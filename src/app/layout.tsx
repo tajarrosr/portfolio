@@ -11,9 +11,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Professional Portfolio | John Doe",
+  title: "Ritchmond Tajarros - Portfolio",
   description:
-    "Full Stack Developer specializing in building exceptional digital experiences",
+    "I build websites and web applications with hands-on full-stack experience from my OJT.",
 };
 
 export default function RootLayout({

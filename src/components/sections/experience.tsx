@@ -1,37 +1,34 @@
-"use client";
+"use client"
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
-import { Calendar, Building2 } from "lucide-react";
+import { motion, useInView } from "framer-motion"
+import { useRef, useState, useEffect } from "react"
+import { Calendar, Building2 } from "lucide-react"
 
 interface ExperienceItem {
-  title: string;
-  company: string;
-  period: string;
-  description: string[];
+  title: string
+  company: string
+  period: string
+  description: string[]
 }
 
 export default function Experience() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [lineWidth, setLineWidth] = useState(0);
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const [lineWidth, setLineWidth] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const startScroll = 700;
-      const endScroll = 1200;
-      const clampedScroll = Math.max(
-        0,
-        Math.min(scrollY - startScroll, endScroll - startScroll)
-      );
-      const progress = clampedScroll / (endScroll - startScroll);
-      setLineWidth(progress * 173);
-    };
+      const scrollY = window.scrollY
+      const startScroll = 700
+      const endScroll = 1200
+      const clampedScroll = Math.max(0, Math.min(scrollY - startScroll, endScroll - startScroll))
+      const progress = clampedScroll / (endScroll - startScroll)
+      setLineWidth(progress * 173)
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const experiences: ExperienceItem[] = [
     {
@@ -45,10 +42,10 @@ export default function Experience() {
         "Gained hands-on experience with full-stack development in a real-world environment.",
       ],
     },
-  ];
+  ]
 
   return (
-    <section id="experience" className="py-16 md:py-24 lg:py-32">
+    <section id="experience" className="py-16 md:py-24 lg:py-32 -mt-8 md:-mt-16">
       <div className="container mx-auto">
         <div ref={ref}>
           <motion.div
@@ -79,9 +76,7 @@ export default function Experience() {
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-                }
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                 className="relative pl-8 pb-12 border-l-2 border-muted last:border-l-0 last:pb-0 ml-6"
               >
@@ -91,9 +86,7 @@ export default function Experience() {
                 {/* Experience card */}
                 <div className="bg-muted/20 rounded-lg p-6 shadow-sm">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                    <h3 className="text-xl font-semibold text-foreground">
-                      {exp.title}
-                    </h3>
+                    <h3 className="text-xl font-semibold text-foreground">{exp.title}</h3>
                     <div className="flex items-center text-xs text-muted-foreground mt-2 sm:mt-0">
                       <Calendar className="h-3 w-3 mr-1" />
                       <span>{exp.period}</span>
@@ -110,11 +103,7 @@ export default function Experience() {
                       <motion.li
                         key={i}
                         initial={{ opacity: 0, x: -10 }}
-                        animate={
-                          isInView
-                            ? { opacity: 1, x: 0 }
-                            : { opacity: 0, x: -10 }
-                        }
+                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                         transition={{ duration: 0.3, delay: 0.4 + i * 0.1 }}
                         className="flex items-start"
                       >
@@ -130,5 +119,5 @@ export default function Experience() {
         </div>
       </div>
     </section>
-  );
+  )
 }
