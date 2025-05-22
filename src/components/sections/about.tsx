@@ -17,14 +17,7 @@ export default function About() {
     offset: ["start end", "end start"],
   })
 
-  // Transform opacity based on scroll position
-  const opacity = useTransform(
-    scrollYProgress,
-    [0, 0.1, 0.4, 0.7, 1], // scroll progress points
-    [0, 1, 1, 0.7, 0], // opacity values at those points
-  )
-
-  // Transform for background elements
+  // Transform for background elements only (removed opacity transform)
   const bgCircle1Y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"])
   const bgCircle2X = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"])
 
@@ -63,11 +56,10 @@ export default function About() {
   }, [])
 
   return (
-    <motion.section
+    <section
       id="about"
-      className="relative container py-4 md:py-8 lg:py-10 -mt-8 md:-mt-16 overflow-hidden"
+     className="relative container py-4 md:py-8 lg:py-10 mt-8 md:mt-10 overflow-hidden"
       ref={sectionRef}
-      style={{ opacity }}
     >
       {/* Background decorative elements */}
       <motion.div
@@ -84,7 +76,7 @@ export default function About() {
           {/* Left side: Text */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0.5, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="md:col-span-7 space-y-6 px-4 sm:px-0"
             ref={contentRef}
@@ -92,13 +84,13 @@ export default function About() {
             <motion.div
               className="mb-8 md:mb-12 text-left"
               initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0.7 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
               <motion.div className="mb-4">
                 <motion.h2
                   initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0.7, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                   className="text-2xl sm:text-3xl font-bold tracking-tighter"
                 >
@@ -129,7 +121,7 @@ export default function About() {
             <div className="space-y-4 text-justify">
               <motion.p
                 initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0.7 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-sm sm:text-base text-muted-foreground"
               >
@@ -139,7 +131,7 @@ export default function About() {
               </motion.p>
               <motion.p
                 initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0.7 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-sm sm:text-base text-muted-foreground"
               >
@@ -150,7 +142,7 @@ export default function About() {
               </motion.p>
               <motion.p
                 initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0.7 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="text-sm sm:text-base text-muted-foreground"
               >
@@ -164,7 +156,7 @@ export default function About() {
           {/* Right side: Profile Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
-            animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0.7, scale: 0.9, rotate: -5 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 0.7 }}
             className="md:col-span-5 flex justify-center mt-0 sm:-mt-6 md:-mt-10 lg:-mb-27"
           >
@@ -219,6 +211,6 @@ export default function About() {
           </motion.div>
         </div>
       </div>
-    </motion.section>
+    </section>
   )
 }

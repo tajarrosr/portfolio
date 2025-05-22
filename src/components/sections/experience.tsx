@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useInView } from "framer-motion"
+import { motion, useInView, useScroll, useTransform } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import { Calendar, Building2 } from "lucide-react"
 
@@ -12,15 +12,26 @@ interface ExperienceItem {
 }
 
 export default function Experience() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const sectionRef = useRef(null)
+  const contentRef = useRef(null)
+  const isInView = useInView(contentRef, { once: false, margin: "-10%" })
   const [lineWidth, setLineWidth] = useState(0)
+
+  // For scroll-based animations (keeping background animations only)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  })
+
+  // Transform for background elements only
+  const bgCircle1Y = useTransform(scrollYProgress, [0, 1], ["5%", "-5%"])
+  const bgCircle2X = useTransform(scrollYProgress, [0, 1], ["5%", "-5%"])
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY
-      const startScroll = 700
-      const endScroll = 1200
+      const startScroll = 1200
+      const endScroll = 1600
       const clampedScroll = Math.max(0, Math.min(scrollY - startScroll, endScroll - startScroll))
       const progress = clampedScroll / (endScroll - startScroll)
       setLineWidth(progress * 173)
@@ -45,18 +56,32 @@ export default function Experience() {
   ]
 
   return (
-    <section id="experience" className="py-16 md:py-24 lg:py-32 -mt-8 md:-mt-16">
+    <section
+      id="experience"
+      className="relative py-16 md:py-24 lg:py-32 -mt-8 md:-mt-16 overflow-hidden"
+      ref={sectionRef}
+    >
+      {/* Background decorative elements */}
+      <motion.div
+        className="absolute top-1/4 right-0 w-96 h-96 rounded-full bg-primary/5 blur-3xl -z-10"
+        style={{ y: bgCircle1Y }}
+      />
+      <motion.div
+        className="absolute bottom-1/4 left-0 w-80 h-80 rounded-full bg-primary/3 blur-3xl -z-10"
+        style={{ x: bgCircle2X }}
+      />
+
       <div className="container mx-auto">
-        <div ref={ref}>
+        <div ref={contentRef}>
           <motion.div
             className="mb-12 text-center"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="text-2xl sm:text-3xl font-bold tracking-tighter mb-4"
             >
@@ -67,8 +92,20 @@ export default function Experience() {
               initial={{ width: "0%" }}
               animate={{ width: `${lineWidth}%` }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="h-1 bg-primary mb-8 mx-auto max-w-[173px]"
-            />
+              className="h-1 bg-primary mb-8 mx-auto max-w-[173px] relative overflow-hidden"
+            >
+              <motion.div
+                className="absolute inset-0 bg-primary/30"
+                animate={{
+                  x: ["-100%", "100%"],
+                }}
+                transition={{
+                  repeat: Number.POSITIVE_INFINITY,
+                  duration: 2,
+                  ease: "linear",
+                }}
+              />
+            </motion.div>
           </motion.div>
 
           <div className="max-w-3xl mx-auto">
@@ -76,7 +113,7 @@ export default function Experience() {
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                 className="relative pl-8 pb-12 border-l-2 border-muted last:border-l-0 last:pb-0 ml-6"
               >
@@ -103,7 +140,7 @@ export default function Experience() {
                       <motion.li
                         key={i}
                         initial={{ opacity: 0, x: -10 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: 0.4 + i * 0.1 }}
                         className="flex items-start"
                       >
