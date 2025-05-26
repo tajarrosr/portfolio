@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Sun, Moon } from "lucide-react"
+import { Menu, X, Sun, Moon, Github, Linkedin } from "lucide-react"
 import { useTheme } from "next-themes"
 
 export default function Header() {
@@ -51,16 +51,16 @@ export default function Header() {
     <>
       {/* Fixed Vertical Navigation (Desktop) */}
       <motion.nav
-        className="hidden md:flex fixed top-10 right-10 flex-col items-end space-y-5 z-50"
+        className="hidden md:flex fixed top-10 right-10 flex-col items-end space-y-4 z-50"
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.5 }}
       >
-        <div className="flex flex-col space-y-5 items-center">
+        <div className="flex flex-col space-y-4 items-center">
           {/* Navigation Links */}
           <motion.a
             href="#about"
-            className={`text-sm font-medium transition-all ${
+            className={`text-xs font-medium transition-all ${
               activeSection === "about" ? "text-primary" : "text-foreground hover:text-primary"
             }`}
             whileHover={{ x: -5 }}
@@ -70,7 +70,7 @@ export default function Header() {
           </motion.a>
           <motion.a
             href="#skills"
-            className={`text-sm font-medium transition-all ${
+            className={`text-xs font-medium transition-all ${
               activeSection === "skills" ? "text-primary" : "text-foreground hover:text-primary"
             }`}
             whileHover={{ x: -5 }}
@@ -80,7 +80,7 @@ export default function Header() {
           </motion.a>
           <motion.a
             href="#experience"
-            className={`text-sm font-medium transition-all ${
+            className={`text-xs font-medium transition-all ${
               activeSection === "experience" ? "text-primary" : "text-foreground hover:text-primary"
             }`}
             whileHover={{ x: -5 }}
@@ -90,7 +90,7 @@ export default function Header() {
           </motion.a>
           <motion.a
             href="#projects"
-            className={`text-sm font-medium transition-all ${
+            className={`text-xs font-medium transition-all ${
               activeSection === "projects" ? "text-primary" : "text-foreground hover:text-primary"
             }`}
             whileHover={{ x: -5 }}
@@ -100,7 +100,7 @@ export default function Header() {
           </motion.a>
           <motion.a
             href="#contact"
-            className={`text-sm font-medium transition-all ${
+            className={`text-xs font-medium transition-all ${
               activeSection === "contact" ? "text-primary" : "text-foreground hover:text-primary"
             }`}
             whileHover={{ x: -5 }}
@@ -116,9 +116,38 @@ export default function Header() {
             onClick={toggleTheme}
             className="p-2 cursor-pointer"
           >
-            {isDarkMode ? <Moon size={16} /> : <Sun size={16} />}
+            {isDarkMode ? <Moon size={14} /> : <Sun size={14} />}
             <span className="sr-only">Toggle theme</span>
           </motion.button>
+
+          {/* Social Icons */}
+          <div className="flex flex-col space-y-3 items-center mt-6">
+            <motion.a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -3, color: "#1dcd9f" }}
+              transition={{ duration: 0.2 }}
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              <Github size={18} />
+              <span className="sr-only">GitHub</span>
+            </motion.a>
+            <motion.a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -3, color: "#1dcd9f" }}
+              transition={{ duration: 0.2 }}
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              <Linkedin size={18} />
+              <span className="sr-only">LinkedIn</span>
+            </motion.a>
+
+            {/* Vertical Line */}
+            <div className="w-px h-16 bg-primary mt-4"></div>
+          </div>
         </div>
       </motion.nav>
 
@@ -154,7 +183,7 @@ export default function Header() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              className="text-foreground text-lg space-y-6"
+              className="text-foreground text-base space-y-6"
             >
               <motion.a
                 href="#about"
@@ -203,19 +232,48 @@ export default function Header() {
               </motion.a>
             </motion.div>
 
-            {/* Dark Mode Toggle (Mobile) */}
-            <motion.button
+            {/* Dark Mode Toggle & Social Icons (Mobile) */}
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={toggleTheme}
-              className="p-2 cursor-pointer mt-8 text-foreground"
+              className="flex flex-col items-center space-y-6 mt-8"
             >
-              {isDarkMode ? <Moon size={20} /> : <Sun size={20} />}
-              <span className="sr-only">Toggle theme</span>
-            </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={toggleTheme}
+                className="p-2 cursor-pointer text-foreground"
+              >
+                {isDarkMode ? <Moon size={20} /> : <Sun size={20} />}
+                <span className="sr-only">Toggle theme</span>
+              </motion.button>
+
+              <div className="flex space-x-6">
+                <motion.a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -3, color: "#1dcd9f" }}
+                  transition={{ duration: 0.2 }}
+                  className="text-foreground hover:text-primary transition-colors"
+                >
+                  <Github size={20} />
+                  <span className="sr-only">GitHub</span>
+                </motion.a>
+                <motion.a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -3, color: "#1dcd9f" }}
+                  transition={{ duration: 0.2 }}
+                  className="text-foreground hover:text-primary transition-colors"
+                >
+                  <Linkedin size={20} />
+                  <span className="sr-only">LinkedIn</span>
+                </motion.a>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

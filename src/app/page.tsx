@@ -10,7 +10,6 @@ import Projects from "@/components/sections/projects"
 import Contact from "@/components/sections/contact"
 import Footer from "@/components/footer"
 import Header from "@/components/header"
-import SocialIcons from "@/components/social-icons"
 
 export default function Home() {
   // Add smooth scrolling
@@ -42,11 +41,8 @@ export default function Home() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        {/* Vertical Navigation */}
+        {/* Combined Navigation & Social Icons */}
         <Header />
-
-        {/* Social Icons */}
-        <SocialIcons />
 
         <main className="flex-1">
           <Hero />
