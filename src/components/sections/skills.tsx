@@ -10,7 +10,6 @@ interface Skill {
   name: string
   icon: string
   category: "frontend" | "backend" | "database" | "tools" | "other"
-  level?: "Beginner" | "Intermediate" | "Advanced"
 }
 
 export default function Skills() {
@@ -45,17 +44,16 @@ export default function Skills() {
   }, [])
 
   const skills: Skill[] = [
-    { name: "JavaScript", icon: "/images/skills/js.png", category: "frontend", level: "Advanced" },
-    { name: "TypeScript", icon: "/images/skills/typescript.png", category: "frontend", level: "Intermediate" },
-    { name: "React", icon: "/images/skills/reactjs.png", category: "frontend", level: "Advanced" },
-    { name: "Next.js", icon: "/images/skills/nextjs.png", category: "frontend", level: "Advanced" },
-    { name: "Node.js", icon: "/images/skills/nodejs.png", category: "backend", level: "Intermediate" },
-    { name: "Laravel", icon: "/images/skills/laravel.png", category: "backend", level: "Intermediate" },
-    { name: "HTML", icon: "/images/skills/html.png", category: "frontend", level: "Advanced" },
-    { name: "Tailwind CSS", icon: "/images/skills/tailwindcss.png", category: "frontend", level: "Advanced" },
-    { name: "MySQL", icon: "/images/skills/mysql.png", category: "database", level: "Intermediate" },
-    { name: "Git", icon: "/images/skills/git.png", category: "tools", level: "Advanced" },
-    { name: "Trello", icon: "/images/skills/trello.png", category: "tools", level: "Intermediate" },
+    { name: "JavaScript", icon: "/images/skills/js.png", category: "frontend"},
+    { name: "TypeScript", icon: "/images/skills/typescript.png", category: "frontend"},
+    { name: "React", icon: "/images/skills/reactjs.png", category: "frontend"},
+    { name: "Next.js", icon: "/images/skills/nextjs.png", category: "frontend"},
+    { name: "Laravel", icon: "/images/skills/laravel.png", category: "backend"},
+    { name: "HTML", icon: "/images/skills/html.png", category: "frontend"},
+    { name: "Tailwind CSS", icon: "/images/skills/tailwindcss.png", category: "frontend"},
+    { name: "MySQL", icon: "/images/skills/mysql.png", category: "database"},
+    { name: "Git", icon: "/images/skills/git.png", category: "tools"},
+    { name: "Trello", icon: "/images/skills/trello.png", category: "tools"},
   ]
 
   const filteredSkills = activeCategory ? skills.filter((skill) => skill.category === activeCategory) : skills

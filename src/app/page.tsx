@@ -1,60 +1,50 @@
 "use client"
 
-import { useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import Hero from "@/components/sections/hero"
+import { motion } from "framer-motion"
+import Image from "next/image"
+import Sidebar from "@/components/sidebar"
 import About from "@/components/sections/about"
-import Skills from "@/components/sections/skills"
 import Experience from "@/components/sections/experience"
 import Projects from "@/components/sections/projects"
-import Contact from "@/components/sections/contact"
-import Footer from "@/components/footer"
-import Header from "@/components/header"
 
 export default function Home() {
-  // Add smooth scrolling
-  useEffect(() => {
-    const handleLinkClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement
-      if (target.tagName === "A" && target.getAttribute("href")?.startsWith("#")) {
-        e.preventDefault()
-        const id = target.getAttribute("href")
-        const element = document.querySelector(id as string)
-        if (element) {
-          window.scrollTo({
-            top: element.getBoundingClientRect().top + window.scrollY - 80,
-            behavior: "smooth",
-          })
-        }
-      }
-    }
-
-    document.addEventListener("click", handleLinkClick)
-    return () => document.removeEventListener("click", handleLinkClick)
-  }, [])
-
   return (
-    <AnimatePresence>
-      <motion.div
-        className="flex flex-col min-h-screen"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        {/* Combined Navigation & Social Icons */}
-        <Header />
+    <div className="min-h-screen bg-background">
+      <div className="portfolio-layout">
+        {/* Left Sidebar - Desktop Only */}
+        <div className="sticky-sidebar">
+          <Sidebar />
+        </div>
 
-        <main className="flex-1">
-          <Hero />
-          <About />
-          <Skills />
-          <Experience />
-          <Projects />
-          <Contact />
-        </main>
+        {/* Main Content */}
+        <div className="main-content">
+          <div className="content-wrapper">
+            {/* Mobile Header - Mobile Only */}
+            <div className="lg:hidden mb-12 pb-8 border-b border-border">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+                <div className="flex items-start gap-4 mb-3">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-primary/20 flex-shrink-0">
+                    <Image src="/images/pic.png" alt="Ritchmond Tajarros" fill className="object-cover" priority />
+                  </div>
+                  <div className="flex flex-col">
+                    <h1 className="text-2xl font-bold text-foreground leading-tight mb-1">Ritchmond Tajarros</h1>
+                    <h2 className="text-sm font-medium text-primary leading-relaxed">
+                      Fresh Graduate with Full-Stack Web Development Experience
+                    </h2>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
 
-        <Footer />
-      </motion.div>
-    </AnimatePresence>
+            {/* Content Sections */}
+            <div className="space-y-24">
+              <About />
+              <Experience />
+              <Projects />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
