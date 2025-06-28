@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
@@ -13,28 +13,25 @@ export default function About() {
         className="space-y-4"
       >
         <p className="text-muted-foreground leading-relaxed">
-          I'm a <span className="text-primary font-medium">Computer Science student</span> at Pamantasan ng Lungsod ng
-          Pasig with a passion for real-world web development. I have knowledge in software engineering principles like
-          Agile methodology, allowing me to work in team-based development.
+          I&apos;m a{" "}
+          <span className="text-white font-medium">Computer Science</span>{" "}
+          graduate from Pamantasan ng Lungsod ng Pasig with a passion for
+          real-world web development. I build websites and web apps with
+          hands-on experience from my OJT as a full-stack web developer.
         </p>
 
         <p className="text-muted-foreground leading-relaxed">
-          During my OJT at <span className="text-primary font-medium">Rizal Technological University (RTU)</span>, I
-          worked with my classmates on a queuing system for the university's MIS office. My main responsibility was
-          developing the login and authentication system for both admin and super-admin accounts, helping ensure secure
-          access and user management.
+          I&apos;m currently exploring different areas in tech to discover where
+          I can grow and contribute best, though I particularly enjoy working on
+          the front-end and building user-friendly interfaces.
         </p>
 
         <p className="text-muted-foreground leading-relaxed">
-          In development, I enjoy working on the <span className="text-primary font-medium">front-end</span>. I'm also
-          interested in cryptocurrency and automation — always exploring new ways to improve workflows and efficiency.
-        </p>
-
-        <p className="text-muted-foreground leading-relaxed">
-          In my spare time, I'm usually exploring new technologies, working on personal projects, or learning about the
-          latest trends in web development and blockchain technology.
+          When I&apos;m not coding, I usually spend my free time playing online
+          games or watching shows. I believe stepping away from the screen helps
+          me reset and stay curious about tech in a healthy way.
         </p>
       </motion.div>
     </section>
-  )
+  );
 }

@@ -1,59 +1,72 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Github, Linkedin, Mail } from "lucide-react"
-import { useState, useEffect } from "react"
-import Image from "next/image"
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Sidebar() {
-  const [activeSection, setActiveSection] = useState("about")
+  const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["about", "experience", "projects"]
-      const mainContent = document.querySelector(".main-content")
+      const sections = ["about", "skills", "experience", "projects"];
+      const mainContent = document.querySelector(".main-content");
 
-      if (!mainContent) return
+      if (!mainContent) return;
 
-      const scrollPosition = mainContent.scrollTop + 200
+      const scrollPosition = mainContent.scrollTop + 200;
 
       for (const section of sections) {
-        const element = document.getElementById(section)
+        const element = document.getElementById(section);
         if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
+          const { offsetTop, offsetHeight } = element;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
           }
         }
       }
-    }
+    };
 
-    const mainContent = document.querySelector(".main-content")
+    const mainContent = document.querySelector(".main-content");
     if (mainContent) {
-      mainContent.addEventListener("scroll", handleScroll)
-      return () => mainContent.removeEventListener("scroll", handleScroll)
+      mainContent.addEventListener("scroll", handleScroll);
+      return () => mainContent.removeEventListener("scroll", handleScroll);
     }
-  }, [])
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    const mainContent = document.querySelector(".main-content")
+    const element = document.getElementById(sectionId);
+    const mainContent = document.querySelector(".main-content");
     if (element && mainContent) {
-      const elementTop = element.offsetTop - 100
-      mainContent.scrollTo({ top: elementTop, behavior: "smooth" })
+      const elementTop = element.offsetTop - 100;
+      mainContent.scrollTo({ top: elementTop, behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <>
       {/* Header Section */}
       <div className="space-y-6">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           {/* Profile Image and Name + Role */}
           <div className="flex items-start gap-4 mb-3">
             <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-primary/20 flex-shrink-0">
-              <Image src="/images/pic.png" alt="Ritchmond Tajarros" fill className="object-cover" priority />
+              <Image
+                src="/images/pic.png"
+                alt="Ritchmond Tajarros"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
             <div className="flex flex-col">
               <h1 className="text-2xl lg:text-[28px] font-bold text-foreground leading-tight mb-1">
@@ -75,6 +88,7 @@ export default function Sidebar() {
         >
           {[
             { id: "about", label: "ABOUT" },
+            { id: "skills", label: "SKILLS" },
             { id: "experience", label: "EXPERIENCE" },
             { id: "projects", label: "PROJECTS" },
           ].map((item) => (
@@ -82,7 +96,9 @@ export default function Sidebar() {
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`group flex items-center space-x-3 text-left transition-all duration-300 w-full ${
-                activeSection === item.id ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                activeSection === item.id
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
               whileHover={{ x: 6 }}
             >
@@ -91,7 +107,9 @@ export default function Sidebar() {
                   activeSection === item.id ? "w-12" : "w-6 group-hover:w-9"
                 }`}
               />
-              <span className="text-xs font-medium tracking-widest uppercase whitespace-nowrap">{item.label}</span>
+              <span className="text-xs font-medium tracking-widest uppercase whitespace-nowrap">
+                {item.label}
+              </span>
             </motion.button>
           ))}
         </motion.nav>
@@ -124,5 +142,5 @@ export default function Sidebar() {
         ))}
       </motion.div>
     </>
-  )
+  );
 }
