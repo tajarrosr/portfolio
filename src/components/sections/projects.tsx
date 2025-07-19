@@ -6,10 +6,25 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+// ✅ Define the project type
+type Project = {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  skills: string[];
+  isPrivate: boolean;
+  links: {
+    github: string;
+    live: string;
+  };
+};
+
 export default function Projects() {
   const router = useRouter();
 
-  const projects = [
+  // ✅ Use the Project[] type for the array
+  const projects: Project[] = [
     {
       id: "rtu-miso",
       title: "RTU-MISO Queuing System",
@@ -61,7 +76,8 @@ export default function Projects() {
     },
   ];
 
-  const handleProjectClick = (project: any) => {
+  // ✅ Use the Project type here instead of "any"
+  const handleProjectClick = (project: Project) => {
     if (project.id === "rtu-miso") {
       router.push("/projects/rtu-miso");
     } else {
