@@ -123,8 +123,16 @@ export default function Sidebar() {
         className="flex space-x-5 mt-6"
       >
         {[
-          { icon: Github, href: "https://github.com", label: "GitHub" },
-          { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+          {
+            icon: Github,
+            href: "https://github.com/tajarrosr",
+            label: "GitHub",
+          },
+          {
+            icon: Linkedin,
+            href: "https://www.linkedin.com/in/ritchmondtajarros/",
+            label: "LinkedIn",
+          },
           { icon: Mail, href: "mailto:hello@example.com", label: "Email" },
         ].map((social) => (
           <motion.a

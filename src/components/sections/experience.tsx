@@ -11,19 +11,16 @@ export default function Experience() {
       title: "Full-Stack Web Developer Intern",
       company: "Rizal Technological University (RTU) - Boni Campus",
       description:
-        "Collaborated with a team to develop a queuing system for the university’s MIS office during my OJT. I was mainly responsible for building the login and authentication system with role-based access for admin and super-admin accounts, ensuring secure user management and access control.",
+        "Collaborated with a team using Trello and Github to develop a queuing system for the university’s MIS office during my OJT. I was mainly responsible for building the login and authentication system with role-based access for admin and super-admin accounts, ensuring secure user management and access control.",
       skills: [
         "Next.js",
         "TypeScript",
-        "JavaScript",
-        "Tailwind CSS",
-        "Shadcn",
-        "Framer Motion",
-        "MySQL",
         "Node.js",
+        "MySQL",
         "Prisma",
+        "Tailwind CSS",
+        "Shadcn UI",
       ],
-      link: "#",
     },
   ];
 

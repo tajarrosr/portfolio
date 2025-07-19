@@ -11,34 +11,25 @@ interface Skill {
 export default function Skills() {
   const skillCategories = [
     {
-      category: "LANGUAGES",
+      category: "FRONTEND",
       skills: [
         { name: "HTML", icon: "/images/skills/html.png" },
         { name: "CSS", icon: "/images/skills/css.png" },
         { name: "JavaScript", icon: "/images/skills/js.png" },
-        { name: "TypeScript", icon: "/images/skills/typescript.png" },
-        { name: "PHP", icon: "/images/skills/php.png" },
-        { name: "Python", icon: "/images/skills/python.png" },
-      ],
-    },
-    {
-      category: "FRAMEWORKS AND LIBRARIES",
-      skills: [
-        { name: "React", icon: "/images/skills/reactjs.png" },
-        { name: "Next.js", icon: "/images/skills/nextjs.png" },
-        { name: "Vue.js", icon: "/images/skills/vuejs.png" },
         { name: "Tailwind CSS", icon: "/images/skills/tailwindcss.png" },
         { name: "Shadcn UI", icon: "/images/skills/shadcn.png" },
-        { name: "Framer Motion", icon: "/images/skills/framermotion.png" },
+        { name: "Next.js", icon: "/images/skills/nextjs.png" },
       ],
     },
     {
-      category: "BACK-END AND DATABASES",
+      category: "BACKEND & DATABASE",
       skills: [
-        { name: "Node.js", icon: "/images/skills/nodejs.png" },
+        { name: "PHP", icon: "/images/skills/php.png" },
         { name: "Laravel", icon: "/images/skills/laravel.png" },
-        { name: "Flask", icon: "/images/skills/flask.png" },
         { name: "MySQL", icon: "/images/skills/mysql.png" },
+        { name: "Node.js", icon: "/images/skills/nodejs.png" },
+        { name: "Python", icon: "/images/skills/python.png" },
+        { name: "Flask", icon: "/images/skills/flask.png" },
       ],
     },
     {
@@ -47,6 +38,7 @@ export default function Skills() {
         { name: "Git", icon: "/images/skills/git.png" },
         { name: "Github", icon: "/images/skills/github.png" },
         { name: "Trello", icon: "/images/skills/trello.png" },
+        { name: "Notion", icon: "/images/skills/notion.png" },
         { name: "Figma", icon: "/images/skills/figma.png" },
         { name: "Vercel", icon: "/images/skills/vercel.png" },
       ],

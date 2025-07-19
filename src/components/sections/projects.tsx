@@ -4,13 +4,17 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Projects() {
+  const router = useRouter();
+
   const projects = [
     {
+      id: "rtu-miso",
       title: "RTU-MISO Queuing System",
       description:
-        "A web-based queuing system designed for Rizal Technological University’s MIS office. The project aimed to streamline student services and reduce wait times through real-time status updates and role-based access for admin-level users.",
+        "A web-based queuing system designed for Rizal Technological University's MIS office. The project aimed to streamline student services and reduce wait times through real-time status updates and role-based access for admin-level users.",
       image: "/images/projects/rtu_queueing_system.png?height=200&width=300",
       skills: [
         "Next.js",
@@ -23,34 +27,47 @@ export default function Projects() {
         "Node.js",
         "Prisma",
       ],
+      isPrivate: true,
+      links: {
+        github: "#",
+        live: "#",
+      },
+    },
+    {
+      id: "aquagrade",
+      title: "Aquagrade",
+      description:
+        "A thesis project that classifies the freshness of fish (specifically bangus and tilapia) using a web-based convolutional neural network (CNN). Users can either upload an image or use a live camera feed to detect and label fish quality in real time, using a trained model integrated via the Roboflow API.",
+      image: "/images/projects/aquagrade.png?height=200&width=300",
+      skills: ["Flask", "Python", "HTML", "Tailwind CSS"],
+      isPrivate: false,
       links: {
         github: "https://github.com/Brhylle",
         live: "#skills",
       },
     },
     {
-      title: "Aquagrade",
-      description:
-        "A thesis project that classifies the freshness of fish (specifically bangus and tilapia) using a web-based convolutional neural network (CNN). Users can either upload an image or use a live camera feed to detect and label fish quality in real time, using a trained model integrated via the Roboflow API.",
-      image: "/images/projects/aquagrade.png?height=200&width=300",
-      skills: ["Flask", "Python", "HTML", "Tailwind CSS"],
-      links: {
-        github: "#",
-        live: "#",
-      },
-    },
-    {
+      id: "chupurple",
       title: "Chupurple",
       description:
         "A modern, responsive portfolio website showcasing skills and projects with smooth animations, dark mode support, and optimized performance.",
       image: "/placeholder.svg?height=200&width=300",
       skills: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      isPrivate: false,
       links: {
         github: "#",
         live: "#",
       },
     },
   ];
+
+  const handleProjectClick = (project: any) => {
+    if (project.id === "rtu-miso") {
+      router.push("/projects/rtu-miso");
+    } else {
+      window.open(project.links.live, "_blank");
+    }
+  };
 
   return (
     <section id="projects" className="content-section">
@@ -74,10 +91,10 @@ export default function Projects() {
             key={index}
             role="link"
             tabIndex={0}
-            onClick={() => window.open(project.links.live, "_blank")}
+            onClick={() => handleProjectClick(project)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                window.open(project.links.live, "_blank");
+                handleProjectClick(project);
               }
             }}
             initial={{ opacity: 0, y: 20 }}
@@ -93,7 +110,7 @@ export default function Projects() {
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="object-cover transition-opacity duration-300"
                 />
                 <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
@@ -106,30 +123,32 @@ export default function Projects() {
                   {project.title}
                   <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </h3>
-                <div className="flex items-center gap-2">
-                  <motion.a
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <Github className="w-4 h-4" />
-                  </motion.a>
-                  <motion.a
-                    href={project.links.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </motion.a>
-                </div>
+                {!project.isPrivate && (
+                  <div className="flex items-center gap-2">
+                    <motion.a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Github className="w-4 h-4" />
+                    </motion.a>
+                    <motion.a
+                      href={project.links.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </motion.a>
+                  </div>
+                )}
               </div>
 
               <p className="text-muted-foreground leading-relaxed text-sm">
