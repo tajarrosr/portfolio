@@ -15,11 +15,12 @@ export default function Experience() {
       skills: [
         "Next.js",
         "TypeScript",
-        "Node.js",
-        "MySQL",
-        "Prisma",
-        "Tailwind CSS",
+        "JavaScript",
         "Shadcn UI",
+        "Tailwind CSS",
+        "MySQL",
+        "Node.js",
+        "Prisma",
       ],
     },
   ];

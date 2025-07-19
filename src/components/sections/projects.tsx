@@ -27,17 +27,16 @@ export default function Projects() {
   const projects: Project[] = [
     {
       id: "rtu-miso",
-      title: "RTU-MISO Queuing System",
+      title: "RTU-BONI MISO Queuing System",
       description:
-        "A web-based queuing system designed for Rizal Technological University's MIS office. The project aimed to streamline student services and reduce wait times through real-time status updates and role-based access for admin-level users.",
+        "Developed a web-based queuing system during my internship at RTU to reduce long physical lines and improve student service flow. Students scan a QR code to submit requests and receive a queue number. Staff access real-time queue updates and transaction history via a secure, role-based admin dashboard.",
       image: "/images/projects/rtu_queueing_system.png?height=200&width=300",
       skills: [
         "Next.js",
         "TypeScript",
         "JavaScript",
+        "Shadcn UI",
         "Tailwind CSS",
-        "Shadcn",
-        "Framer Motion",
         "MySQL",
         "Node.js",
         "Prisma",
@@ -52,21 +51,29 @@ export default function Projects() {
       id: "aquagrade",
       title: "Aquagrade",
       description:
-        "A thesis project that classifies the freshness of fish (specifically bangus and tilapia) using a web-based convolutional neural network (CNN). Users can either upload an image or use a live camera feed to detect and label fish quality in real time, using a trained model integrated via the Roboflow API.",
+        "Aquagrade is a thesis project that uses a CNN-based AI model to classify the freshness of bangus and tilapia. It allows users to upload fish images or use a live camera for real-time quality detection, integrating Roboflow’s pre-trained model. Designed for vendors and inspectors, which helps to ensure accurate, fast freshness assessment.",
       image: "/images/projects/aquagrade.png?height=200&width=300",
-      skills: ["Flask", "Python", "HTML", "Tailwind CSS"],
-      isPrivate: false,
+      skills: [
+        "Flask",
+        "Python",
+        "HTML",
+        "CSS",
+        "Tailwind CSS",
+        "JavaScript",
+        "Roboflow API",
+      ],
+      isPrivate: true,
       links: {
         github: "https://github.com/Brhylle",
         live: "#skills",
       },
     },
     {
-      id: "chupurple",
-      title: "Chupurple",
+      id: "chuupurple",
+      title: "Chuupurple",
       description:
         "A modern, responsive portfolio website showcasing skills and projects with smooth animations, dark mode support, and optimized performance.",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/images/projects/chuupurple.png?height=200&width=300",
       skills: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
       isPrivate: false,
       links: {
@@ -80,6 +87,8 @@ export default function Projects() {
   const handleProjectClick = (project: Project) => {
     if (project.id === "rtu-miso") {
       router.push("/projects/rtu-miso");
+    } else if (project.id === "aquagrade") {
+      router.push("/projects/aquagrade");
     } else {
       window.open(project.links.live, "_blank");
     }
