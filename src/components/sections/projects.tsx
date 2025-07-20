@@ -5,6 +5,7 @@ import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 // ✅ Define the project type
 type Project = {
@@ -29,7 +30,7 @@ export default function Projects() {
       id: "rtu-miso",
       title: "RTU-BONI MISO Queuing System",
       description:
-        "Developed a web-based queuing system during my internship at RTU to reduce long physical lines and improve student service flow. Students scan a QR code to submit requests and receive a queue number. Staff access real-time queue updates and transaction history via a secure, role-based admin dashboard.",
+        "A web-based queuing system developed during my internship at RTU to streamline the MIS office’s service flow. Students scan a QR code, fill out a form, and receive a queue number, reducing long lines while enabling staff to track past transactions and process requests more efficiently.",
       image: "/images/projects/rtu_queueing_system.png?height=200&width=300",
       skills: [
         "Next.js",
@@ -51,7 +52,7 @@ export default function Projects() {
       id: "aquagrade",
       title: "Aquagrade",
       description:
-        "Aquagrade is a thesis project that uses a CNN-based AI model to classify the freshness of bangus and tilapia. It allows users to upload fish images or use a live camera for real-time quality detection, integrating Roboflow’s pre-trained model. Designed for vendors and inspectors, which helps to ensure accurate, fast freshness assessment.",
+        "Aquagrade is a web-based thesis project that uses AI and a convolutional neural network (CNN) to classify the freshness of bangus and tilapia in real time. Users can upload an image or use a live camera feed, and the system, powered by a Roboflow-trained model, instantly detects and labels fish freshness.",
       image: "/images/projects/aquagrade.png?height=200&width=300",
       skills: [
         "Flask",
@@ -72,10 +73,17 @@ export default function Projects() {
       id: "chuupurple",
       title: "Chuupurple",
       description:
-        "A modern, responsive portfolio website showcasing skills and projects with smooth animations, dark mode support, and optimized performance.",
+        "ChuuPurple is a final group project for our Parallel and Distributed Programming subject, a Single Page Application (SPA) built with Vue.js that showcases independently developed UI components. Despite being created by different team members, all components were integrated into one cohesive and seamless platform.",
       image: "/images/projects/chuupurple.png?height=200&width=300",
-      skills: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-      isPrivate: false,
+      skills: [
+        "Vue.js",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Tailwind CSS",
+        "DaisyUI",
+      ],
+      isPrivate: true,
       links: {
         github: "#",
         live: "#",
@@ -89,6 +97,8 @@ export default function Projects() {
       router.push("/projects/rtu-miso");
     } else if (project.id === "aquagrade") {
       router.push("/projects/aquagrade");
+    } else if (project.id === "chuupurple") {
+      router.push("/projects/chuupurple");
     } else {
       window.open(project.links.live, "_blank");
     }
@@ -204,13 +214,13 @@ export default function Projects() {
         viewport={{ once: true }}
         className="pt-8"
       >
-        <a
-          href="#"
+        <Link
+          href="/projects"
           className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-300 font-medium"
         >
-          View Full Project Archive
+          View All Projects
           <ArrowUpRight className="w-4 h-4" />
-        </a>
+        </Link>
       </motion.div>
     </section>
   );

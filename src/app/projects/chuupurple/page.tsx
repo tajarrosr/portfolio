@@ -2,30 +2,26 @@
 
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 
-export default function AquagradePage() {
+export default function ChuupurplePage() {
   const projectDetails = {
-    title: "Aquagrade",
-    liveDemo: "https://flaskapi-c0lk.onrender.com/",
+    title: "Chuupurple",
+    liveDemo: "https://chuupurple.vercel.app",
     description:
-      "Aquagrade is a thesis project that leverages artificial intelligence to classify the freshness of fish, specifically bangus (milkfish) and tilapia. This web-based application uses a convolutional neural network (CNN) to analyze fish images and determine their quality in real-time. Users can either upload an image from their device or use a live camera feed to detect and label fish freshness instantly. The system integrates with the Roboflow API to utilize a pre-trained model that has been specifically trained to recognize different levels of fish freshness, making it a valuable tool for fish vendors, consumers, and quality control inspectors.",
-    images: ["/images/projects/Picture3.png", "/images/projects/Picture4.png"],
+      "A final group project on Parallel and Distributed Programming, which is a Single-Paged Application (SPA) for Mixed Component Compilation using Vue.js. ChuuPurple is a showcase of collective components developed as a final project for one of our college subjects. It serves as a platform where all the website components, created by different individuals are brought together into a single application. This ensures that, even though each component was developed independently, they all blend together cohesively. If not perfectly… then at least, seamlessly.",
     contribution: [
-      "Developed the dashboard and sidebar interface for smooth user navigation",
-      "Made the dashboard and sidebar fully responsive across different screen sizes",
+      "Developed two interactive selection components for the shared SPA interface.",
     ],
-    role: "Front-end Developer",
+    role: "Component Developer",
     techStack: [
-      "Flask",
-      "Python",
+      "Vue.js",
+      "JavaScript",
       "HTML",
       "CSS",
       "Tailwind CSS",
-      "JavaScript",
-      "Roboflow API",
+      "DaisyUI",
     ],
   };
 
@@ -85,38 +81,11 @@ export default function AquagradePage() {
           </p>
         </motion.div>
 
-        {/* Project Screenshots */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-12"
-        >
-          <h2 className="text-xl font-semibold text-foreground mb-4">
-            Project Screenshots
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projectDetails.images.map((image, index) => (
-              <div
-                key={index}
-                className="relative aspect-video rounded-lg overflow-hidden"
-              >
-                <Image
-                  src={image || "/placeholder.svg?height=300&width=400"}
-                  alt={`Aquagrade Screenshot ${index + 1}`}
-                  fill
-                  className="object-fit"
-                />
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* Contribution */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-12"
         >
           <h2 className="text-xl font-semibold text-foreground mb-4">
@@ -141,7 +110,7 @@ export default function AquagradePage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="mb-12"
         >
           <h2 className="text-xl font-semibold text-foreground mb-4">Role</h2>
@@ -154,7 +123,7 @@ export default function AquagradePage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
           className="mb-12"
         >
           <h2 className="text-xl font-semibold text-foreground mb-4">
