@@ -86,6 +86,18 @@ export default function AllProjectsPage() {
         live: "#",
       },
     },
+    {
+      id: "tee-vibes",
+      year: "2023",
+      title: "Tee Vibes",
+      image: "/images/projects/tee-vibes.png?height=60&width=80",
+      skills: ["HTML", "CSS", "JavaScript"],
+      isPrivate: false,
+      links: {
+        github: "#",
+        live: "https://tee-vibes.vercel.app/",
+      },
+    },
   ];
 
   const handleProjectClick = (project: Project) => {
@@ -95,6 +107,8 @@ export default function AllProjectsPage() {
       router.push("/projects/aquagrade");
     } else if (project.id === "chuupurple") {
       router.push("/projects/chuupurple");
+    } else if (project.id === "tee-vibes") {
+      router.push("/projects/tee-vibes");
     } else if (project.links.live !== "#") {
       window.open(project.links.live, "_blank");
     }
@@ -151,7 +165,7 @@ export default function AllProjectsPage() {
                   Image
                 </th>
                 <th className="text-left py-4 px-2 text-sm font-medium text-muted-foreground uppercase tracking-wide">
-                  Built with
+                  Tech Stack
                 </th>
               </tr>
             </thead>
@@ -168,7 +182,7 @@ export default function AllProjectsPage() {
                   onClick={() => handleProjectClick(project)}
                 >
                   {/* Year */}
-                  <td className="py-6 px-2 text-muted-foreground font-mono text-sm group-hover:text-foreground transition-colors duration-300">
+                  <td className="py-6 px-2 text-muted-foreground font-poppins text-sm group-hover:text-foreground transition-colors duration-300">
                     {project.year}
                   </td>
 
@@ -233,7 +247,7 @@ export default function AllProjectsPage() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   {/* Year */}
-                  <span className="text-muted-foreground font-mono text-sm group-hover:text-foreground transition-colors duration-300 min-w-[3rem]">
+                  <span className="text-muted-foreground font-poppins text-sm group-hover:text-foreground transition-colors duration-300 min-w-[3rem]">
                     {project.year}
                   </span>
 
