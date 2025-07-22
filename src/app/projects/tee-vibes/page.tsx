@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 
@@ -9,8 +9,9 @@ export default function TeeVibesPage() {
   const projectDetails = {
     title: "Tee Vibes",
     liveDemo: "https://tee-vibes.vercel.app/",
+    github: "https://github.com/tajarrosr/Tee-Vibes",
     description:
-      "A final group project on Web Development Programming , Tee Vibes is a clothing brand that blends style, comfort, and positivity. We offer high-quality shirts designed with affirmations and feel-good aesthetics to help customers look great and feel even better. With both physical and online stores, we cater to all body types and preferences using eco-friendly materials. Our mission: “Wear Tee Vibes, Spread Good Vibes.”",
+      'A final group project on Web Development Programming , Tee Vibes is a clothing brand that blends style, comfort, and positivity. We offer high-quality shirts designed with affirmations and feel-good aesthetics to help customers look great and feel even better. With both physical and online stores, we cater to all body types and preferences using eco-friendly materials. Our mission: "Wear Tee Vibes, Spread Good Vibes."',
     contribution: [
       "Developed the homepage with engaging hero section and product showcase",
       "Created the apparel/product details page with interactive features",
@@ -38,7 +39,7 @@ export default function TeeVibesPage() {
 
       {/* Main Content */}
       <div className="pt-20 lg:pt-24 max-w-7xl mx-auto px-6 py-12">
-        {/* Project Title and Live Demo */}
+        {/* Project Title and Links */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -49,15 +50,26 @@ export default function TeeVibesPage() {
             <h1 className="text-3xl lg:text-4xl font-bold text-foreground">
               {projectDetails.title}
             </h1>
-            <a
-              href={projectDetails.liveDemo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium"
-            >
-              Live Demo
-              <ExternalLink className="w-4 h-4" />
-            </a>
+            <div className="flex items-center gap-3">
+              <a
+                href={projectDetails.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium"
+              >
+                <Github className="w-4 h-4" />
+                GitHub
+              </a>
+              <a
+                href={projectDetails.liveDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium"
+              >
+                Live Demo
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
           </div>
           <div className="w-16 h-px bg-primary"></div>
         </motion.div>

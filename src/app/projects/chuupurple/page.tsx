@@ -16,12 +16,12 @@ export default function ChuupurplePage() {
     ],
     role: "Component Developer",
     techStack: [
-      "Vue.js",
-      "JavaScript",
       "HTML",
       "CSS",
+      "JavaScript",
+      "Vue.js",
       "Tailwind CSS",
-      "DaisyUI",
+      "Daisy UI",
     ],
   };
 

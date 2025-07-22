@@ -30,16 +30,18 @@ export default function Projects() {
       id: "rtu-miso",
       title: "RTU-BONI MISO Queuing System",
       description:
-        "A web-based queuing system developed during my internship at RTU to streamline the MIS office’s service flow. Students scan a QR code, fill out a form, and receive a queue number, reducing long lines while enabling staff to track past transactions and process requests more efficiently.",
+        "A web-based queuing system developed during my internship at RTU to streamline the MIS office's service flow. Students scan a QR code, fill out a form, and receive a queue number, reducing long lines while enabling staff to track past transactions and process requests more efficiently.",
       image: "/images/projects/rtu_queueing_system.png?height=200&width=300",
       skills: [
-        "Next.js",
-        "TypeScript",
+        "HTML",
+        "CSS",
         "JavaScript",
-        "Shadcn UI",
+        "TypeScript",
         "Tailwind CSS",
-        "MySQL",
+        "Shadcn UI",
+        "Next.js",
         "Node.js",
+        "MySQL",
         "Prisma",
       ],
       isPrivate: true,
@@ -55,12 +57,12 @@ export default function Projects() {
         "Aquagrade is a web-based thesis project that uses AI and a convolutional neural network (CNN) to classify the freshness of bangus and tilapia in real time. Users can upload an image or use a live camera feed, and the system, powered by a Roboflow-trained model, instantly detects and labels fish freshness.",
       image: "/images/projects/aquagrade.png?height=200&width=300",
       skills: [
-        "Flask",
-        "Python",
         "HTML",
         "CSS",
-        "Tailwind CSS",
         "JavaScript",
+        "Tailwind CSS",
+        "Python",
+        "Flask",
         "Roboflow API",
       ],
       isPrivate: true,
@@ -76,12 +78,12 @@ export default function Projects() {
         "ChuuPurple is a final group project for our Parallel and Distributed Programming subject, a Single Page Application (SPA) built with Vue.js that showcases independently developed UI components. Despite being created by different team members, all components were integrated into one cohesive and seamless platform.",
       image: "/images/projects/chuupurple.png?height=200&width=300",
       skills: [
-        "Vue.js",
-        "JavaScript",
         "HTML",
         "CSS",
+        "JavaScript",
+        "Vue.js",
         "Tailwind CSS",
-        "DaisyUI",
+        "Daisy UI",
       ],
       isPrivate: true,
       links: {
@@ -145,9 +147,8 @@ export default function Projects() {
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   fill
-                  className="object-cover transition-opacity duration-300"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </div>
 

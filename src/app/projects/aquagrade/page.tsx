@@ -19,12 +19,12 @@ export default function AquagradePage() {
     ],
     role: "Front-end Developer",
     techStack: [
-      "Flask",
-      "Python",
       "HTML",
       "CSS",
-      "Tailwind CSS",
       "JavaScript",
+      "Tailwind CSS",
+      "Python",
+      "Flask",
       "Roboflow API",
     ],
   };

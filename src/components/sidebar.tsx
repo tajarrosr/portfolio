@@ -133,7 +133,11 @@ export default function Sidebar() {
             href: "https://www.linkedin.com/in/ritchmondtajarros/",
             label: "LinkedIn",
           },
-          { icon: Mail, href: "mailto:hello@example.com", label: "Email" },
+          {
+            icon: Mail,
+            href: "https://mail.google.com/mail/u/0/#inbox?compose=CllgCJNrchVVPBWmwgmMWtxTbCwrbZRZFMtChNwBFcdJrvhbCKzQMTrTlpftchRgDRjwNMJXhXq",
+            label: "Email",
+          },
         ].map((social) => (
           <motion.a
             key={social.label}
