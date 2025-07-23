@@ -135,7 +135,7 @@ export default function Sidebar() {
           },
           {
             icon: Mail,
-            href: "https://mail.google.com/mail/u/0/#inbox?compose=CllgCJNrchVVPBWmwgmMWtxTbCwrbZRZFMtChNwBFcdJrvhbCKzQMTrTlpftchRgDRjwNMJXhXq",
+            href: "https://mail.google.com/mail/?view=cm&fs=1&to=tajarrosrj@gmail.com",
             label: "Email",
           },
         ].map((social) => (
