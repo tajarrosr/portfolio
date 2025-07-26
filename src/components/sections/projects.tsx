@@ -31,7 +31,7 @@ export default function Projects() {
       title: "RTU-BONI MISO Queuing System",
       description:
         "A web-based queuing system developed during my internship at RTU to streamline the MIS office's service flow. Students scan a QR code, fill out a form, and receive a queue number, reducing long lines while enabling staff to track past transactions and process requests more efficiently.",
-      image: "/images/projects/rtu_queueing_system.png?height=200&width=300",
+      image: "/images/projects/rtu_queuing_system_1.png?height=200&width=300",
       skills: [
         "HTML",
         "CSS",
@@ -55,7 +55,7 @@ export default function Projects() {
       title: "Aquagrade",
       description:
         "Aquagrade is a web-based thesis project that uses AI and a convolutional neural network (CNN) to classify the freshness of bangus and tilapia in real time. Users can upload an image or use a live camera feed, and the system, powered by a Roboflow-trained model, instantly detects and labels fish freshness.",
-      image: "/images/projects/aquagrade.png?height=200&width=300",
+      image: "/images/projects/aquagrade_1.png?height=200&width=300",
       skills: [
         "HTML",
         "CSS",
@@ -71,19 +71,41 @@ export default function Projects() {
         live: "#skills",
       },
     },
+    // {
+    //   id: "chuupurple",
+    //   title: "Chuupurple",
+    //   description:
+    //     "ChuuPurple is a final group project for our Parallel and Distributed Programming subject, a Single Page Application (SPA) built with Vue.js that showcases independently developed UI components. Despite being created by different team members, all components were integrated into one cohesive and seamless platform.",
+    //   image: "/images/projects/chuupurple.png?height=200&width=300",
+    //   skills: [
+    //     "HTML",
+    //     "CSS",
+    //     "JavaScript",
+    //     "Vue.js",
+    //     "Tailwind CSS",
+    //     "Daisy UI",
+    //   ],
+    //   isPrivate: true,
+    //   links: {
+    //     github: "#",
+    //     live: "#",
+    //   },
+    // },
     {
-      id: "chuupurple",
-      title: "Chuupurple",
+      id: "booksforless",
+      title: "BooksForLess",
       description:
-        "ChuuPurple is a final group project for our Parallel and Distributed Programming subject, a Single Page Application (SPA) built with Vue.js that showcases independently developed UI components. Despite being created by different team members, all components were integrated into one cohesive and seamless platform.",
-      image: "/images/projects/chuupurple.png?height=200&width=300",
+        "An e-commerce web application for book lovers to find affordable books online. Features user authentication, shopping cart functionality, product catalog with search and filtering, and integrated payment processing for a complete online shopping experience.",
+      image: "/images/projects/booksforless.png?height=200&width=300",
       skills: [
         "HTML",
         "CSS",
         "JavaScript",
-        "Vue.js",
+        "PHP",
+        "Laravel",
         "Tailwind CSS",
         "Daisy UI",
+        "MySQL",
       ],
       isPrivate: true,
       links: {
@@ -101,6 +123,8 @@ export default function Projects() {
       router.push("/projects/aquagrade");
     } else if (project.id === "chuupurple") {
       router.push("/projects/chuupurple");
+    } else if (project.id === "booksforless") {
+      router.push("/projects/booksforless");
     } else {
       window.open(project.links.live, "_blank");
     }

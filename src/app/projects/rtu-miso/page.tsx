@@ -12,8 +12,8 @@ export default function RTUMisoPage() {
     description:
       "A web-based queuing system developed during my internship at RTU to improve the MIS office's service flow. Instead of waiting in long lines, students scan a QR code, fill out a form, and receive a queue number, which allowing them to wait comfortably near the service window. This reduces congestion, shortens visible lines, and speeds up processing time. The system also helps staff track previous transactions (e.g., certificate or registration requests), ensuring efficient service and maintaining accurate records. It includes real-time queue updates, role-based access for admins, and secure user authentication.",
     images: [
-      "/images/projects/qeueing_system_1.jpg",
-      "/images/projects/qeueing_system_2.jpg",
+      "/images/projects/rtu_queuing_system_2.jpg",
+      "/images/projects/rtu_queuing_system_3.jpg",
     ],
     contribution: [
       "Developed login and authentication system with role-based access (admin/super-admin)",

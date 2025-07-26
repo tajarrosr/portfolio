@@ -30,7 +30,7 @@ export default function AllProjectsPage() {
       id: "rtu-miso",
       year: "2025",
       title: "RTU-BONI MISO Queuing System",
-      image: "/images/projects/rtu_queueing_system.png?height=60&width=80",
+      image: "/images/projects/rtu_queuing_system_1.png?height=60&width=80",
       skills: [
         "HTML",
         "CSS",
@@ -53,7 +53,7 @@ export default function AllProjectsPage() {
       id: "aquagrade",
       year: "2025",
       title: "Aquagrade",
-      image: "/images/projects/aquagrade.png?height=60&width=80",
+      image: "/images/projects/aquagrade_1.png?height=60&width=80",
       skills: [
         "HTML",
         "CSS",
@@ -65,8 +65,8 @@ export default function AllProjectsPage() {
       ],
       isPrivate: true,
       links: {
-        github: "https://github.com/Brhylle",
-        live: "https://flaskapi-c0lk.onrender.com/",
+        github: "#",
+        live: "#",
       },
     },
     {
@@ -82,7 +82,28 @@ export default function AllProjectsPage() {
         "Tailwind CSS",
         "Daisy UI",
       ],
-      isPrivate: false,
+      isPrivate: true,
+      links: {
+        github: "#",
+        live: "#",
+      },
+    },
+    {
+      id: "booksforless",
+      year: "2024",
+      title: "BooksForLess",
+      image: "/images/projects/booksforless.png?height=60&width=80",
+      skills: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "PHP",
+        "Laravel",
+        "Tailwind CSS",
+        "Daisy UI",
+        "MySQL",
+      ],
+      isPrivate: true,
       links: {
         github: "#",
         live: "#",
@@ -92,12 +113,12 @@ export default function AllProjectsPage() {
       id: "tee-vibes",
       year: "2023",
       title: "Tee Vibes",
-      image: "/images/projects/tee-vibes.png?height=60&width=80",
+      image: "/images/projects/tee_vibes.png?height=60&width=80",
       skills: ["HTML", "CSS", "JavaScript"],
-      isPrivate: false,
+      isPrivate: true,
       links: {
         github: "#",
-        live: "https://tee-vibes.vercel.app/",
+        live: "#",
       },
     },
   ];
@@ -109,6 +130,8 @@ export default function AllProjectsPage() {
       router.push("/projects/aquagrade");
     } else if (project.id === "chuupurple") {
       router.push("/projects/chuupurple");
+    } else if (project.id === "booksforless") {
+      router.push("/projects/booksforless");
     } else if (project.id === "tee-vibes") {
       router.push("/projects/tee-vibes");
     } else if (project.links.live !== "#") {

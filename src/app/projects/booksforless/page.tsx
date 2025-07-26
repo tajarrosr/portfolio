@@ -1,34 +1,37 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 
-export default function AquagradePage() {
+export default function BooksForLessPage() {
   const projectDetails = {
-    title: "Aquagrade",
-    liveDemo: "https://flaskapi-c0lk.onrender.com/",
+    title: "BooksForLess",
+    liveDemo: "#",
+    github: "#",
     description:
-      "Aquagrade is a thesis project that leverages artificial intelligence to classify the freshness of fish, specifically bangus (milkfish) and tilapia. This web-based application uses a convolutional neural network (CNN) to analyze fish images and determine their quality in real-time. Users can either upload an image from their device or use a live camera feed to detect and label fish freshness instantly. The system integrates with the Roboflow API to utilize a pre-trained model that has been specifically trained to recognize different levels of fish freshness, making it a valuable tool for fish vendors, consumers, and quality control inspectors.",
+      "BooksForLess is an e-commerce web application designed for book lovers who want to find affordable books online. The platform features a clean, user-friendly interface where customers can browse through various book categories, search for specific titles, add books to their cart, and complete purchases. The application includes user authentication, product management, shopping cart functionality, and order tracking. Built with modern web technologies, it provides a seamless shopping experience for both desktop and mobile users.",
     images: [
-      "/images/projects/aquagrade_2.png",
-      "/images/projects/aquagrade_3.png",
+      "/images/projects/booksforless.png",
+      "/images/projects/booksforless.png",
     ],
     contribution: [
-      "Developed the dashboard and sidebar interface for smooth user navigation",
-      "Made the dashboard and sidebar fully responsive across different screen sizes",
+      "Created a admin side such as login, registration, and dashboard",
+      "Implemented user authentication system with login and registration functionality",
+      "Built the books management and user management system with CRUD operations on the admin side",
     ],
-    role: "Front-end Developer",
+    role: "Full-Stack Developer",
     techStack: [
       "HTML",
       "CSS",
       "JavaScript",
+      "PHP",
+      "Laravel",
       "Tailwind CSS",
-      "Python",
-      "Flask",
-      "Roboflow API",
+      "Daisy UI",
+      "MySQL",
     ],
   };
 
@@ -49,7 +52,7 @@ export default function AquagradePage() {
 
       {/* Main Content */}
       <div className="pt-20 lg:pt-24 max-w-7xl mx-auto px-6 py-12">
-        {/* Project Title and Live Demo */}
+        {/* Project Title and Links */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -60,15 +63,26 @@ export default function AquagradePage() {
             <h1 className="text-3xl lg:text-4xl font-bold text-foreground">
               {projectDetails.title}
             </h1>
-            <a
-              href={projectDetails.liveDemo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium"
-            >
-              Live Demo
-              <ExternalLink className="w-4 h-4" />
-            </a>
+            <div className="flex items-center gap-3">
+              <a
+                href={projectDetails.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium"
+              >
+                <Github className="w-4 h-4" />
+                GitHub
+              </a>
+              <a
+                href={projectDetails.liveDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium"
+              >
+                Live Demo
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
           </div>
           <div className="w-16 h-px bg-primary"></div>
         </motion.div>
@@ -102,13 +116,16 @@ export default function AquagradePage() {
             {projectDetails.images.map((image, index) => (
               <div
                 key={index}
-                className="relative aspect-video rounded-lg overflow-hidden"
+                className="relative aspect-video rounded-lg overflow-hidden border border-border"
               >
                 <Image
-                  src={image || "/placeholder.svg?height=300&width=400"}
-                  alt={`Aquagrade Screenshot ${index + 1}`}
+                  src={
+                    image ||
+                    "/placeholder.svg?height=300&width=400&query=BooksForLess e-commerce website screenshot"
+                  }
+                  alt={`BooksForLess Screenshot ${index + 1}`}
                   fill
-                  className="object-fit"
+                  className="object-cover"
                 />
               </div>
             ))}
