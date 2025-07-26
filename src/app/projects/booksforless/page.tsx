@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink, Github } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
@@ -9,13 +9,11 @@ import { Badge } from "@/components/ui/badge";
 export default function BooksForLessPage() {
   const projectDetails = {
     title: "BooksForLess",
-    liveDemo: "#",
-    github: "#",
     description:
-      "BooksForLess is an e-commerce web application designed for book lovers who want to find affordable books online. The platform features a clean, user-friendly interface where customers can browse through various book categories, search for specific titles, add books to their cart, and complete purchases. The application includes user authentication, product management, shopping cart functionality, and order tracking. Built with modern web technologies, it provides a seamless shopping experience for both desktop and mobile users.",
+      "A final group project on Open source programming with framework. BooksForLess is an e-commerce web application designed for book lovers who want to find affordable books online. The platform features a clean, user-friendly interface where customers can browse through various book categories, search for specific titles, add books to their cart, and complete purchases. The application includes user authentication, product management, and shopping cart functionality. Built with modern web technologies, it provides a seamless shopping experience for both desktop and mobile users.",
     images: [
-      "/images/projects/booksforless.png",
-      "/images/projects/booksforless.png",
+      "/images/projects/booksforless_2.png",
+      "/images/projects/booksforless_3.png",
     ],
     contribution: [
       "Created a admin side such as login, registration, and dashboard",
@@ -63,26 +61,7 @@ export default function BooksForLessPage() {
             <h1 className="text-3xl lg:text-4xl font-bold text-foreground">
               {projectDetails.title}
             </h1>
-            <div className="flex items-center gap-3">
-              <a
-                href={projectDetails.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium"
-              >
-                <Github className="w-4 h-4" />
-                GitHub
-              </a>
-              <a
-                href={projectDetails.liveDemo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium"
-              >
-                Live Demo
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
+            <div className="flex items-center gap-3"></div>
           </div>
           <div className="w-16 h-px bg-primary"></div>
         </motion.div>
@@ -121,11 +100,11 @@ export default function BooksForLessPage() {
                 <Image
                   src={
                     image ||
-                    "/placeholder.svg?height=300&width=400&query=BooksForLess e-commerce website screenshot"
+                    "/placeholder.svg?height=3 00&width=400&query=BooksForLess e-commerce website screenshot"
                   }
                   alt={`BooksForLess Screenshot ${index + 1}`}
                   fill
-                  className="object-cover"
+                  className="object-fit"
                 />
               </div>
             ))}

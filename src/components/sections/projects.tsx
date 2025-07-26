@@ -95,8 +95,8 @@ export default function Projects() {
       id: "booksforless",
       title: "BooksForLess",
       description:
-        "An e-commerce web application for book lovers to find affordable books online. Features user authentication, shopping cart functionality, product catalog with search and filtering, and integrated payment processing for a complete online shopping experience.",
-      image: "/images/projects/booksforless.png?height=200&width=300",
+        "A final project which is a e-commerce web application for book lovers to find affordable books online. Features user authentication, shopping cart functionality, product catalog with search and filtering.",
+      image: "/images/projects/booksforless_1.png?height=200&width=300",
       skills: [
         "HTML",
         "CSS",

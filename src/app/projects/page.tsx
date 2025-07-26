@@ -92,7 +92,7 @@ export default function AllProjectsPage() {
       id: "booksforless",
       year: "2024",
       title: "BooksForLess",
-      image: "/images/projects/booksforless.png?height=60&width=80",
+      image: "/images/projects/booksforless_1.png?height=60&width=80",
       skills: [
         "HTML",
         "CSS",

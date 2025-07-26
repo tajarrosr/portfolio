@@ -108,7 +108,7 @@ export default function AquagradePage() {
                   src={image || "/placeholder.svg?height=300&width=400"}
                   alt={`Aquagrade Screenshot ${index + 1}`}
                   fill
-                  className="object-fit"
+                  className="object-cover"
                 />
               </div>
             ))}
