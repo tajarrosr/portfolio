@@ -17,8 +17,8 @@ export default function About() {
           <span className="text-white font-medium">Computer Science</span>{" "}
           graduate from Pamantasan ng Lungsod ng Pasig with a strong interest in
           real-world web development. I gained hands-on experience during my OJT
-          as a full-stack web developer, working on both the front-end and
-          back-end of web apps and internal tools.
+          as a web developer, working on both the front-end and back-end of web
+          apps and internal tools.
         </p>
         <p className="text-muted-foreground leading-relaxed">
           I&apos;m currently focused on web development and continuously

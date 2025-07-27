@@ -20,7 +20,7 @@ export default function BooksForLessPage() {
       "Implemented user authentication system with login and registration functionality",
       "Built the books management and user management system with CRUD operations on the admin side",
     ],
-    role: "Full-Stack Developer",
+    role: "Admin Stack Developer",
     techStack: [
       "HTML",
       "CSS",

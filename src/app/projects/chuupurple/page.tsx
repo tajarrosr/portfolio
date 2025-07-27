@@ -9,6 +9,7 @@ export default function ChuupurplePage() {
   const projectDetails = {
     title: "Chuupurple",
     liveDemo: "https://chuupurple.vercel.app",
+    github: "https://github.com/Brhylle/chuupurple",
     description:
       "A final group project on Parallel and Distributed Programming, which is a Single-Paged Application (SPA) for Mixed Component Compilation using Vue.js. ChuuPurple is a showcase of collective components developed as a final project for one of our college subjects. It serves as a platform where all the website components, created by different individuals are brought together into a single application. This ensures that, even though each component was developed independently, they all blend together cohesively. If not perfectly… then at least, seamlessly.",
     contribution: [

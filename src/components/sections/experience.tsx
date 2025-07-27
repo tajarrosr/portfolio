@@ -9,7 +9,7 @@ export default function Experience() {
     {
       period: "March - May 2025",
       title: "Full-Stack Web Developer Intern",
-      company: "Rizal Technological University (RTU) - Boni Campus",
+      company: "Rizal Technological University (RTU) - Main Campus",
       description:
         "Collaborated with a team using Trello and Github to develop a queuing system for the university’s MIS office during my OJT. I was mainly responsible for building the login and authentication system with role-based access for admin and super-admin accounts, ensuring secure user management and access control.",
       skills: [
