@@ -109,6 +109,24 @@ export default function AllProjectsPage() {
         live: "#",
       },
     },
+        {
+      id: "plp-alumni",
+      year: "2024",
+      title: "Pamantasan ng Lungsod ng Pasig - Alumni Website",
+      image: "/images/projects/plp_alumni_1.png?height=60&width=80",
+      skills: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "PHP",
+        "MySQL",
+      ],
+      isPrivate: true,
+      links: {
+        github: "#",
+        live: "#",
+      },
+    },
     {
       id: "tee-vibes",
       year: "2023",
@@ -132,6 +150,8 @@ export default function AllProjectsPage() {
       router.push("/projects/chuupurple");
     } else if (project.id === "booksforless") {
       router.push("/projects/booksforless");
+    } else if (project.id === "plp-alumni") {
+      router.push("/projects/plp-alumni");
     } else if (project.id === "tee-vibes") {
       router.push("/projects/tee-vibes");
     } else if (project.links.live !== "#") {
