@@ -18,7 +18,7 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="text-primary hover:underline font-medium transition-colors"
         >
-          Brittany Chiang's Portfolio
+          Brittany Chiang&apos;s Portfolio
         </a>
       </p>
     </motion.footer>
