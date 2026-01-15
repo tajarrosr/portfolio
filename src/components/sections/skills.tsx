@@ -17,16 +17,12 @@ export default function Skills() {
         { name: "CSS", icon: "/images/skills/css.png" },
         { name: "JavaScript", icon: "/images/skills/js.png" },
         { name: "Vue.js", icon: "/images/skills/vuejs.png" },
-        { name: "React.js", icon: "/images/skills/reactjs.png" },
         { name: "Tailwind CSS", icon: "/images/skills/tailwindcss.png" },
-        { name: "Shadcn UI", icon: "/images/skills/shadcn.png" },
-        { name: "Next.js", icon: "/images/skills/nextjs.png" },
       ],
     },
     {
       category: "BACKEND & DATABASE",
       skills: [
-        { name: "Node.js", icon: "/images/skills/nodejs.png" },
         { name: "PHP", icon: "/images/skills/php.png" },
         { name: "Laravel", icon: "/images/skills/laravel.png" },
         { name: "Python", icon: "/images/skills/python.png" },
@@ -43,6 +39,19 @@ export default function Skills() {
         { name: "Vercel", icon: "/images/skills/vercel.png" },
         { name: "Trello", icon: "/images/skills/trello.png" },
         { name: "Notion", icon: "/images/skills/notion.png" },
+        { name: "InfinityFree", icon: "/images/skills/infinityfree.png" },
+      ],
+    },
+        {
+      category: "CURRENTLY EXPLORING",
+      skills: [
+        { name: "React.js", icon: "/images/skills/reactjs.png" },
+        { name: "TypeScript", icon: "/images/skills/typescript.png" },
+        { name: "Angular", icon: "/images/skills/angular.png" },
+        { name: "Next.js", icon: "/images/skills/nextjs.png" },
+        { name: "Node.js", icon: "/images/skills/nodejs.png" },
+        { name: "CodeIgniter", icon: "/images/skills/codeigniter.png" },
+        { name: "Shadcn UI", icon: "/images/skills/shadcn.png" },
       ],
     },
   ];
@@ -73,7 +82,7 @@ export default function Skills() {
 
         {/* Text on Hover */}
         <div className="absolute inset-0 flex items-center justify-center px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/10">
-          <span className="text-[9px] font-medium text-primary text-center leading-tight">
+          <span className="text-[10px] font-medium text-primary text-center leading-tight">
             {skill.name}
           </span>
         </div>
@@ -108,7 +117,7 @@ export default function Skills() {
         className="mb-12"
       >
         <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
-          Skills & Technologies I Use and Know
+          Skills & Technologies
         </h2>
         <div className="w-12 h-px bg-primary"></div>
       </motion.div>

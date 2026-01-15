@@ -7,6 +7,23 @@ import { Badge } from "@/components/ui/badge";
 export default function Experience() {
   const experiences = [
     {
+      period: "August 2025 - Present",
+      title: "Front-End Web Developer",
+      company: "NetGlobal Solutions, Inc.",
+      description:
+        "Develop front-end interfaces using Angular, Bootstrap, CodeIgniter and Tailwind CSS. created the UI for the Payroll Disbursement System and designed the Merchant Onboarding interface for applicants.",
+      skills: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Angular",
+        "Boostrap",
+        "CodeIgniter",
+        "MySQL",
+        "Tailwind CSS",
+      ],
+    },
+       {
       period: "March - May 2025",
       title: "Full-Stack Web Developer Intern",
       company: "Rizal Technological University (RTU) - Main Campus",

@@ -7,6 +7,7 @@ import About from "@/components/sections/about";
 import Skills from "@/components/sections/skills";
 import Experience from "@/components/sections/experience";
 import Projects from "@/components/sections/projects";
+import Footer from "@/components/sections/footer";
 
 export default function Home() {
   return (
@@ -55,6 +56,7 @@ export default function Home() {
               <Skills />
               <Experience />
               <Projects />
+              <Footer />
             </div>
           </div>
         </div>

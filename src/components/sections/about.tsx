@@ -11,29 +11,20 @@ export default function About() {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
         className="space-y-4"
+
+        
       >
         <p className="text-muted-foreground leading-relaxed">
           I&apos;m a{" "}
           <span className="text-white font-medium">Computer Science</span>{" "}
-          graduate from Pamantasan ng Lungsod ng Pasig with a strong interest in
-          real-world web development. I gained hands-on experience during my OJT
-          as a web developer, working on both the front-end and back-end of web
-          apps and internal tools.
+          graduate from Pamantasan ng Lungsod ng Pasig and currently working as a <span className="text-white font-medium">Front-End Web Developer at NetGlobal Solutions, Inc.</span>{" "} I enjoy building  <span className="text-white font-medium">clean, user-friendly web interfaces</span>{" "} and improving user experience.
+
+
+          
         </p>
         <p className="text-muted-foreground leading-relaxed">
-          I&apos;m currently focused on web development and continuously
-          exploring ways to grow as a developer. While I&apos;m particularly
-          enjoy front-end development for its focus on user experience and
-          designing clean, user-friendly interfaces. At the same time, I&apos;m
-          also interested in back-end development, where I can dive deeper into
-          logic, data, and functionality to build reliable systems behind the
-          scenes.
-        </p>
-        <p className="text-muted-foreground leading-relaxed">
-          When I&apos;m not coding, I usually spend my free time playing online
-          games or watching shows. I believe stepping away from the screen helps
-          me to refresh and relax my mind which is very important to balance
-          life and work.
+          While front-end development is my main focus, I&apos;m also interested in exploring back-end development, AI, and Web3. Outside of coding, I spend my time doing crypto trading, watching anime and K-dramas, playing sports like badminton and ultimate frisbee, and gaming to maintain a healthy work-life balance.
+
         </p>
       </motion.div>
     </section>

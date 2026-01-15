@@ -73,7 +73,7 @@ export default function Sidebar() {
                 Ritchmond Tajarros
               </h1>
               <h2 className="text-[14px] font-medium text-primary leading-relaxed">
-                Fresh Graduate with Web Development Experience
+                Front-End Web Developer
               </h2>
             </div>
           </div>

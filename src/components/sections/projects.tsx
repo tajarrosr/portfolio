@@ -7,7 +7,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-// ✅ Define the project type
 type Project = {
   id: string;
   title: string;
