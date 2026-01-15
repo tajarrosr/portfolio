@@ -23,7 +23,6 @@ type Project = {
 export default function Projects() {
   const router = useRouter();
 
-  // ✅ Use the Project[] type for the array
   const projects: Project[] = [
     {
       id: "rtu-miso",
@@ -114,7 +113,6 @@ export default function Projects() {
     },
   ];
 
-  // ✅ Use the Project type here instead of "any"
   const handleProjectClick = (project: Project) => {
     if (project.id === "rtu-miso") {
       router.push("/projects/rtu-miso");

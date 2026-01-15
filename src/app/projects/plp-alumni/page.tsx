@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +9,8 @@ import { Badge } from "@/components/ui/badge";
 export default function PLPAlumniPage() {
   const projectDetails = {
     title: "Pamantasan ng Lungsod ng Pasig - Alumni Website",
+    liveDemo: "https://plp-alumni.infinityfreeapp.com/",
+    github: "https://github.com/tajarrosr/PLP-Alumni-System",
     description:
       "The PLP Alumni Website was created to connect graduates with the university, provide updates and opportunities, and maintain an organized alumni network that supports continuous engagement and growth.",
     images: [
@@ -53,10 +55,32 @@ export default function PLPAlumniPage() {
           transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <h1 className="text-3xl lg:text-4xl font-bold text-foreground">
-            {projectDetails.title}
-          </h1>
-          <div className="w-16 h-px bg-primary mt-4"></div>
+<div className="flex items-center gap-4 mb-4">
+            <h1 className="text-3xl lg:text-4xl font-bold text-foreground">
+              {projectDetails.title}
+            </h1>
+            <div className="flex items-center gap-3">
+              <a
+                href={projectDetails.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium"
+              >
+                <Github className="w-4 h-4" />
+                GitHub
+              </a>
+              <a
+                href={projectDetails.liveDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium"
+              >
+                Live Demo
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+          <div className="w-16 h-px bg-primary"></div>
         </motion.div>
 
         {/* Project Description */}
