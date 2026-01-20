@@ -112,13 +112,13 @@ export default function PLPAlumniPage() {
             {projectDetails.images.map((image, index) => (
               <div
                 key={index}
-                className="relative aspect-video rounded-lg overflow-hidden border border-border"
+                className="relative aspect-video rounded-lg overflow-hidden"
               >
                 <Image
-                  src={image || "/placeholder.svg?height=300&width=400"}
+                  src={image || "/placeholder.svg?height=100&width=100"}
                   alt={`RTU-MISO Screenshot ${index + 1}`}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             ))}

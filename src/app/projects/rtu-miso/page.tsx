@@ -14,6 +14,8 @@ export default function RTUMisoPage() {
     images: [
       "/images/projects/rtu_queuing_system_2.jpg",
       "/images/projects/rtu_queuing_system_3.jpg",
+      "/images/projects/rtu_queuing_system_4.png",
+      "/images/projects/rtu_queuing_system_5.png",
     ],
     contribution: [
       "Developed login and authentication system with role-based access (admin/super-admin)",
@@ -92,13 +94,13 @@ export default function RTUMisoPage() {
             {projectDetails.images.map((image, index) => (
               <div
                 key={index}
-                className="relative aspect-video rounded-lg overflow-hidden border border-border"
+                className="relative aspect-video rounded-lg overflow-hidden"
               >
                 <Image
                   src={image || "/placeholder.svg?height=300&width=400"}
                   alt={`RTU-MISO Screenshot ${index + 1}`}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             ))}

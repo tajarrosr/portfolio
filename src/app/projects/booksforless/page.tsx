@@ -95,7 +95,7 @@ export default function BooksForLessPage() {
             {projectDetails.images.map((image, index) => (
               <div
                 key={index}
-                className="relative aspect-video rounded-lg overflow-hidden border border-border"
+                className="relative aspect-video rounded-lg overflow-hidden"
               >
                 <Image
                   src={
@@ -104,7 +104,7 @@ export default function BooksForLessPage() {
                   }
                   alt={`BooksForLess Screenshot ${index + 1}`}
                   fill
-                  className="object-fit"
+                  className="object-contain"
                 />
               </div>
             ))}
